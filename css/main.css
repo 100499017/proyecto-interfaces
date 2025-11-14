@@ -1,1 +1,122 @@
 /* Estilos globales */
+
+/* Definición de la paleta de colores */
+:root {
+    /* Colores base (fondos y texto) */
+    --color-fondo-claro: #FFFFFF;
+    --color-fondo-oscuro: #2B2B2B;
+    --color-texto: #1A1A1A;
+    --color-texto-suave: #6C6C6C;
+
+    /* Colores de identidad */
+    --color-primario: #0D3B66;
+    --color-primario-suave: #AEC9DF;
+    
+    --color-acento: #F28C38;
+    --color-acento-suave: #F7D7B5;
+
+    /* Estados y elementos interactivos */
+    --color-exito: #2E8B57;
+    --color-error: #C0392B;
+    --color-borde: #E0DED8;
+}
+
+/* Reset CSS */
+*, 
+*:after,
+*:before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+body{
+    font-size: 100%;
+    list-style-type: none;
+    font-family:Arial, Helvetica, sans-serif;
+}
+/* Fin Reset CSS */
+
+/* Layout general */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilos de cabecera */
+header {
+    background-color: var(--color-fondo-claro);
+    color: black;
+    padding: 1rem;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.logo img {
+    height: 40px;
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-left: 1rem;
+    flex-grow: 1; /* Empuja el idioma y el botón a la derecha */
+}
+
+.nav-links a {
+    color: black;
+    font-weight: 500;
+}
+
+.lang-login {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.lang-selector {
+    padding: 0.3rem 0.5rem;
+    border-radius: 4px;
+}
+
+.login-btn {
+    padding: 0.8rem 1.6rem;
+    background-color: var(--color-primario);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+/* Fin de estilos de cabecera*/
+
+main {
+    flex-grow: 1; /* Ocupa todo el espacio sobrante */
+    /*padding: 1rem;*/
+    background-color: var(--color-fondo-claro);
+}
+
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Estilos de footer */
+footer {
+    background-color: var(--color-fondo-oscuro);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+}
+/* Fin de estilos de footer */
