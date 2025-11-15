@@ -1,1 +1,126 @@
 <!--Página de registro de cuenta-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro | Ciudades del Mundo</title>
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/registro.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+
+            <!--Logo-->
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../assets/images/logo.png" alt="Logo del sitio">
+                </a>
+            </div>
+
+            <!--Navegación-->
+            <nav class="nav-links">
+                <a href="../index.html">Inicio</a>
+                <a href="explorar.html">Explorar</a>
+                <a href="comunidad.html">Comunidad</a>
+                <a href="reserva.html">Reserva</a>
+                <a href="otros-rincones.html">Otros Rincones</a>
+            </nav>
+
+            <div class="lang-login">
+                <!--Selector de idioma-->
+                <select class="lang-selector">
+                    <option value="es">ES</option>
+                    <option value="en">EN</option>
+                </select>
+
+                <!--Botón para iniciar sesión-->
+                <div class="auth-container">
+                    <button class="login-btn">Iniciar sesión</button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="main-container">
+            <div class="form-container">
+                <h2>Crea tu cuenta</h2>
+                <p>Únete a la comunidad de Aventureros para guardar destinos y compartir consejos.</p>
+                
+                <form id="register-form">
+                    <div class="form-group">
+                        <label for="register-name">Nombre:</label>
+                        <input type="text" id="register-name" name="name" required>
+                        <span class="error-text" id="name-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="register-avatar">Imagen de Perfil (Opcional):</label>
+                        <input type="file" id="register-avatar" name="avatar" accept=".jpg, .jpeg, .png">
+                        <span class="error-text" id="avatar-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="register-email">Email:</label>
+                        <input type="email" id="register-email" name="email" required>
+                        <span class="error-text" id="email-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="register-password">Contraseña:</label>
+                        <input type="password" id="register-password" name="password" required>
+                        <span class="error-text" id="password-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="register-password-confirm">Confirmar Contraseña:</label>
+                        <input type="password" id="register-password-confirm" name="password-confirm" required>
+                        <span class="error-text" id="confirm-password-error"></span>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Registrarse</button>
+                </form>
+
+                <p class="form-switch-link">
+                    ¿Ya tienes una cuenta? <a href="#" id="open-login-modal-link">Inicia sesión</a>
+                </p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>Copyright © 2025 Ciudades del Mundo</p>
+    </footer>
+
+    <!--Ventana emergente de inicio de sesión-->
+    <div class="modal-overlay" id="login-modal">
+        <div class="modal-content">
+            <!--Botón de cierre-->
+            <span class="modal-close" id="close-modal-btn">&times;</span>
+
+            <!--Formulario-->
+            <h2>Iniciar Sesión</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-email">Email:</label>
+                    <input type="email" id="login-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Contraseña:</label>
+                    <input type="password" id="login-password" name="password" required>
+                </div>
+                <button type="submit" class="submit-btn">Entrar</button>
+            </form>
+            <p class="modal-register-link">
+                ¿No tienes una cuenta? <a href="registro.html">Regístrate aquí.</a>
+            </p>
+        </div>
+    </div>
+
+    <!--Scripts-->
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/registro.js"></script>
+</body>
+</html>
