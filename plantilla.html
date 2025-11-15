@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ciudades del Mundo</title>
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/home.css">
 </head>
 <body>
     <header>
@@ -45,5 +46,34 @@
     <footer>
         <p>@2025 Ciudades del Mundo</p>
     </footer>
+
+    <!--Ventana emergente de inicio de sesión-->
+    <div class="modal-overlay" id="login-modal">
+        <div class="modal-content">
+            <!--Botón de cierre-->
+            <span class="modal-close" id="close-modal-btn">&times;</span>
+
+            <!--Formulario-->
+            <h2>Iniciar Sesión</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-email">Email: </label>
+                    <input type="email" id="login-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Contraseña: </label>
+                    <input type="password" id="login-password" name="password" required>
+                </div>
+                <button type="submit" class="submit-btn">Entrar</button>
+            </form>
+            <p class="modal-register-link">
+                ¿No tienes una cuenta? <a href="pages/registro.html">Regístrate aquí.</a>
+            </p>
+        </div>
+    </div>
+
+    <!--Scripts-->
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
