@@ -229,7 +229,8 @@ footer {
 .error-text {
     display: none;
     display: block;
-    color: var(--color-error); 
+    color: var(--color-error);
+    font-size: 0.9rem;
 }
 
 .submit-btn {

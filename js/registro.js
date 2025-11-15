@@ -65,8 +65,13 @@ $(function() {
         }
 
         // Validación de imagen
-        if ($avatar[0].files.length > 0) {
-            const fileName = $avatar[0].files[0].name;
+        let avatarBase64 = null;
+        const files = $avatar[0].files;
+
+        if (files.length > 0) {
+            const file = files[0];
+            const fileName = file.name;
+
             // Comprobamos la extensión con un Regex
             if (!/\.(jpe?g|png)$/i.test(fileName)) {
                 $avatarError.text('Formato no válido. Solo se permite JPG, JPEG o PNG.').show();
@@ -156,6 +161,9 @@ $(function() {
 
                 // Guardar el array actualizado en localStorage
                 localStorage.setItem('users', JSON.stringify(users));
+
+                // Actualizar el usuario actual
+                sessionStorage.setItem('loggedInUser', JSON.stringify(newUser))
 
                 // Mostrar mensaje de éxito y redirigir
                 alert('¡Registro completado con éxito! Ahora puedes iniciar sesión.');
