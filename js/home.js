@@ -34,10 +34,6 @@ $(function() {
         const $dot = $('<div></div>')
             .addClass('carousel-dot')
             .data('index', i); // Guarda el índice (0, 1, 2, 3, 4)
-        
-        if (i == 0) {
-            $dot.addClass('active'); // El primero empieza activo
-        }
 
         $navContainer.append($dot);
     }
@@ -64,6 +60,9 @@ $(function() {
     function stopAutoplay() {
         clearInterval(autoplayInterval);
     }
+
+    // Pone el carrusel en el slide 0 y activa el primer círculo
+    goToSlide(currentSlide);
 
     // Inicia el autoplay
     startAutoplay();
