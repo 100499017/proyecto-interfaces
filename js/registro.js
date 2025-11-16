@@ -2,6 +2,11 @@
 
 // Espera a que el documento esté listo
 $(function() {
+    // Redirigir a los usuarios que tengan una sesión iniciada
+    if (sessionStorage.getItem('loggedInUser')) {
+        window.location.href = '../index.html';
+    }
+
     // Lógica para el enlace "Inciar sesión"
     const $loginModal = $('#login-modal');
 

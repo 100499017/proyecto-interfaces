@@ -29,17 +29,33 @@ $(function() {
         }
     })
 
+    const DEFAULT_AVATAR_PATH = '../assets/images/default-avatar.jpg';
+
     // Actualiza el header
     function updateHeader() {
         const $authContainer = $('.auth-container');
         const loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser'));
 
         if (loggedInUser) {
+            // Determina qué imagen usar
+            const avatarSrc = (loggedInUser.avatar) ? loggedInUser.avatar : DEFAULT_AVATAR_PATH;
+
             // Creamos un link <a> para "Mi Perfil"
             const $profileLink = $('<a></a>')
                 .attr('href', '/pages/perfil.html')
-                .addClass('profile-btn')
+                .addClass('profile-link-container');
+
+            // La imagen <img>
+            const $avatarImg = $('<img>')
+                .attr('src', avatarSrc)
+                .attr('alt', 'Mi Perfil')
+                .addClass('profile-avatar-img');
+            
+            const $profileText = $('<span></span>')
                 .text('Mi Perfil');
+            
+            // Introducimos la imagen y el texto dentro de profileLink
+            $profileLink.append($avatarImg, $profileText);
             
             // Reemplazamos el contenido del contenedor
             $authContainer.html($profileLink);

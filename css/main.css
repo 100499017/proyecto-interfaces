@@ -107,6 +107,33 @@ header {
 .profile-btn:hover {
     background-color: var(--color-primario-fuerte);
 }
+
+.profile-link-container {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-primario);
+    padding: 6px 12px 6px 6px;
+    border-radius: 50px;
+    transition: background-color 0.2s;
+}
+.profile-link-container:hover {
+    background-color: var(--color-primario-fuerte);
+}
+
+.profile-link-container span {
+    font-weight: bold;
+    color: white;
+    font-size: 0.95rem;
+}
+
+.profile-avatar-img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+    border: 1px solid #fff;
+}
 /* Fin de estilos de cabecera*/
 
 main {
