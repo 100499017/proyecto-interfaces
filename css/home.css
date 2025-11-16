@@ -55,8 +55,10 @@
     opacity: 1;
 }
 .carousel-dot.active {
-    opacity: 1;
-    background-color: var(--color-secundario);
+    background-color: var(--color-acento);
     transform: scale(1.2);
+}
+.carousel-dot.active:hover {
+    opacity: 1;
 }
 /* Fin de estilos del carrusel */

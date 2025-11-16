@@ -33,7 +33,7 @@ $(function() {
     for (let i = 0; i < totalSlides; i++) {
         const $dot = $('<div></div>')
             .addClass('carousel-dot')
-            .data('index', i); // Guarda el índice (0, 1, 2, 3, 4)
+            .attr('data-index', i); // Guarda el índice (0, 1, 2, 3, 4)
 
         $navContainer.append($dot);
     }
