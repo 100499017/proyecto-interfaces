@@ -546,74 +546,74 @@
               }
             }
           ]
+        }
+      ]
+    },
+    {
+      "name": "South America",
+      "countries": [
+        {
+          "name": "Argentina",
+          "cities": [
+            {
+              "name": "Buenos Aires",
+              "description": "Neighborhoods with strong identity (Recoleta, San Telmo, La Boca), diverse architecture and intense cultural life. Tango, steakhouses and iconic bookshops.",
+              "image": {
+                "url": "https://plus.unsplash.com/premium_photo-1697729901052-fe8900e24993?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8QnVlbm9zJTIwQWlyZXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
+                "alt": "Buenos Aires"
+              }
+            }
+          ]
         },
         {
-          "name": "South America",
-          "countries": [
+          "name": "Brazil",
+          "cities": [
             {
-              "name": "Argentina",
-              "cities": [
-                {
-                  "name": "Buenos Aires",
-                  "description": "Neighborhoods with strong identity (Recoleta, San Telmo, La Boca), diverse architecture and intense cultural life. Tango, steakhouses and iconic bookshops.",
-                  "image": {
-                    "url": "https://plus.unsplash.com/premium_photo-1697729901052-fe8900e24993?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8QnVlbm9zJTIwQWlyZXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
-                    "alt": "Buenos Aires"
-                  }
-                }
-              ]
-            },
+              "name": "Rio de Janeiro",
+              "description": "Legendary beaches, urban jungle and Christ the Redeemer watching over bays and hills. Samba rhythm in streets and squares.",
+              "image": {
+                "url": "https://plus.unsplash.com/premium_photo-1671211307997-f4f552b0601c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8UiVDMyVBRG8lMjBkZSUyMEphbmVpcm98ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
+                "alt": "Rio de Janeiro"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Colombia",
+          "cities": [
             {
-              "name": "Brazil",
-              "cities": [
-                {
-                  "name": "Rio de Janeiro",
-                  "description": "Legendary beaches, urban jungle and Christ the Redeemer watching over bays and hills. Samba rhythm in streets and squares.",
-                  "image": {
-                    "url": "https://plus.unsplash.com/premium_photo-1671211307997-f4f552b0601c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8UiVDMyVBRG8lMjBkZSUyMEphbmVpcm98ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
-                    "alt": "Rio de Janeiro"
-                  }
-                }
-              ]
-            },
+              "name": "Cartagena",
+              "description": "Walled city, plazas and colonial houses covered in bougainvillea. Getsemaní and Bocagrande display its creative and modern sides.",
+              "image": {
+                "url": "https://images.unsplash.com/photo-1583531352515-8884af319dc1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Q2FydGFnZW5hJTIwY29sb21iaWF8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
+                "alt": "Cartagena"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Ecuador",
+          "cities": [
             {
-              "name": "Colombia",
-              "cities": [
-                {
-                  "name": "Cartagena",
-                  "description": "Walled city, plazas and colonial houses covered in bougainvillea. Getsemaní and Bocagrande display its creative and modern sides.",
-                  "image": {
-                    "url": "https://images.unsplash.com/photo-1583531352515-8884af319dc1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Q2FydGFnZW5hJTIwY29sb21iaWF8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
-                    "alt": "Cartagena"
-                  }
-                }
-              ]
-            },
+              "name": "Quito",
+              "description": "Golden historic center beneath Andean volcanoes. Views from the Basilica of the National Vow and traditional markets.",
+              "image": {
+                "url": "https://plus.unsplash.com/premium_photo-1697729921570-a7e324d7baac?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8UXVpdG98ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
+                "alt": "Quito"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Peru",
+          "cities": [
             {
-              "name": "Ecuador",
-              "cities": [
-                {
-                  "name": "Quito",
-                  "description": "Golden historic center beneath Andean volcanoes. Views from the Basilica of the National Vow and traditional markets.",
-                  "image": {
-                    "url": "https://plus.unsplash.com/premium_photo-1697729921570-a7e324d7baac?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8UXVpdG98ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
-                    "alt": "Quito"
-                  }
-                }
-              ]
-            },
-            {
-              "name": "Peru",
-              "cities": [
-                {
-                  "name": "Cusco",
-                  "description": "Ancient Inca capital with plazas, convents and cobblestone streets. Starting point to Machu Picchu and viewpoints like Cristo Blanco.",
-                  "image": {
-                    "url": "https://images.unsplash.com/photo-1609944433409-81bda5323abc?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Q3V6Y298ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
-                    "alt": "Cusco"
-                  }
-                }
-              ]
+              "name": "Cusco",
+              "description": "Ancient Inca capital with plazas, convents and cobblestone streets. Starting point to Machu Picchu and viewpoints like Cristo Blanco.",
+              "image": {
+                "url": "https://images.unsplash.com/photo-1609944433409-81bda5323abc?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Q3V6Y298ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
+                "alt": "Cusco"
+              }
             }
           ]
         }
