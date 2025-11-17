@@ -31,7 +31,13 @@ $(function() {
         }
     })
 
-    const DEFAULT_AVATAR_PATH = '../images/default-avatar.jpg';
+    let pathPrefix = '.'; // Asumimos que está en index.html
+    if (window.location.pathname.includes('/pages/')) {
+        pathPrefix = '..'; // Si estamos en una subpágina, cambiamos el prefijo
+    }
+
+    const DEFAULT_AVATAR_PATH = `${pathPrefix}/images/default-avatar.jpg`;
+    const PROFILE_PAGE_URL = `${pathPrefix}/pages/perfil.html`;
 
     // Actualiza el header
     function updateHeader() {
@@ -44,7 +50,7 @@ $(function() {
 
             // Creamos un link <a> para "Mi Perfil"
             const $profileLink = $('<a></a>')
-                .attr('href', 'pages/perfil.html')
+                .attr('href', PROFILE_PAGE_URL)
                 .addClass('profile-link-container');
 
             // La imagen <img>
