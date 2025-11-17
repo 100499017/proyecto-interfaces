@@ -44,7 +44,7 @@ $(function() {
 
             // Creamos un link <a> para "Mi Perfil"
             const $profileLink = $('<a></a>')
-                .attr('href', '/pages/perfil.html')
+                .attr('href', 'pages/perfil.html')
                 .addClass('profile-link-container');
 
             // La imagen <img>
