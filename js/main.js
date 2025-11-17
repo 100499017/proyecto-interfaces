@@ -2,6 +2,8 @@
 
 // Espera a que todo el HTML esté cargado
 $(function() {
+    // --- LÓGICA DE INICIO DE SESIÓN ---
+
     // Seleccionamos los elementos del modal
     const $loginModal = $('#login-modal');
     const $closeModalBtn = $('#close-modal-btn');
@@ -104,4 +106,59 @@ $(function() {
 
     // Actualiza el header en cuanto carga la página
     updateHeader();
+
+    // --- FIN DE LÓGICA DE INICIO DE SESIÓN ---
+
+    // --- LÓGICA DEL SELECTOR DE IDIOMA PERSONALIzADO ---
+    
+    const $selector = $('#lang-selector');
+    const $trigger = $('#lang-trigger-btn');
+    const $menu = $('#lang-menu');
+
+    // Abrir y cerrar el menú al hacer click en el botón
+    $trigger.on('click', function(e) {
+        e.stopPropagation();
+        $menu.toggleClass('visible');
+        $trigger.attr('aria-expanded', $menu.hasClass('visible'));
+    });
+
+    // Seleccionar una opción
+    $menu.on('click', 'li[data-lang]', function(e) {
+        const $selectedOption = $(this);
+
+        // Obtener los datos
+        const lang = $selectedOption.data('lang');
+        const text = $selectedOption.find('.lang-text').text();
+
+        // Actualizar el botón
+        $('#current-lang-text').text(text);
+
+        // Cerrar el menú
+        $menu.removeClass('visible');
+        $trigger.attr('aria-expanded', false);
+
+        // Guardar la elección
+        localStorage.setItem('lang', lang);
+
+        location.reload();
+    });
+
+    // Cerrar el menú si se hace click fuera
+    $(document).on('click', function(e) {
+        if ($menu.hasClass('visible') && !$selector.is(e.target) && $selector.has(e.target).length === 0) {
+            $menu.removeClass('visible');
+            $trigger.attr('aria-expanded', false);
+        }
+    });
+
+    // Inicializar el botón con el idioma guardado
+    const savedLang = localStorage.getItem('lang');
+    if (savedLang) {
+        const $initialOption = $menu.find(`li[data-lang="${savedLang}"]`);
+        if ($initialOption.length > 0) {
+            $('#current-lang-text').text($initialOption.find('.lang-text').text());
+        }
+    }
+
+    // --- FIN DE LÓGICA DEL SELECTOR DE IDIOMA PERSONALIZADO ---
 })

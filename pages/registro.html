@@ -21,7 +21,7 @@
             </div>
 
             <!--Navegación-->
-            <nav class="nav-links">
+            <nav id="nav-links">
                 <a href="../index.html">Inicio</a>
                 <a href="explorar.html">Explorar</a>
                 <a href="comunidad.html">Comunidad</a>
@@ -29,12 +29,24 @@
                 <a href="otros-rincones.html">Otros Rincones</a>
             </nav>
 
-            <div class="lang-login">
+            <div id="lang-login">
                 <!--Selector de idioma-->
-                <select class="lang-selector">
-                    <option value="es">ES</option>
-                    <option value="en">EN</option>
-                </select>
+                <div id="lang-selector">
+                    <button id="lang-trigger-btn" aria-haspopup="true" aria-expanded="false">
+                        <span class="lang-text" id="current-lang-text">Español</span>
+                        <span id="lang-arrow">&triangledown;</span>
+                    </button>
+
+                    <ul id="lang-menu" role="menu">
+                        <li role="menuitem" data-lang="es">
+                            <span class="lang-text">Español</span>
+                        </li>
+
+                        <li role="menuitem" data-lang="en">
+                            <span class="lang-text">English</span>
+                        </li>
+                    </ul>
+                </div>
 
                 <!--Botón para iniciar sesión-->
                 <div class="auth-container">
