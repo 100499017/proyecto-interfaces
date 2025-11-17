@@ -19,7 +19,7 @@
     /* Estados y elementos interactivos */
     --color-exito: #2E8B57;
     --color-error: #C0392B;
-    --color-borde: #E0DED8;
+    --color-borde: #EEE;
 }
 
 /* Reset CSS */
@@ -213,6 +213,9 @@ main {
 .main-container {
     max-width: 1200px;
     margin: 0 auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    box-sizing: border-box;
 }
 
 /* Estilos de footer */

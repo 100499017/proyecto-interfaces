@@ -1,0 +1,623 @@
+{
+  "continents": [
+    {
+      "name": "Europe",
+      "countries": [
+        {
+          "name": "Austria",
+          "cities": [
+            {
+              "name": "Vienna",
+              "description": "Imperial city with museums and classical music at every turn. Schönbrunn Palace and the Ringstrasse condense the Baroque and Historicism styles, while cafes like Demel maintain the pastry tradition. Ideal for walking among parks and opera houses.",
+              "image": {
+                "url": "https://images.unsplash.com/photo-1731223832507-ebe5373129e6?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8dmllbmElMkMlMjBhdXRyaWF8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
+                "alt": "Vienna"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Belgium",
+          "cities": [
+            {
+              "name": "Bruges",
+              "description": "Perfectly preserved medieval center, canals lined with trees, and cobbled squares like the Markt. Belfries, guild houses, and chocolate shops create a fairytale atmosphere that invites you to get lost without haste.",
+              "image": {
+                "url": "https://plus.unsplash.com/premium_photo-1661963659103-9602b3811297?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
+                "alt": "Bruges"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Denmark",
+          "cities": [
+            {
+              "name": "Copenhagen",
+              "description": "Balance between contemporary design and Nordic tradition. Nyhavn, Tivoli, and cycling neighborhoods showcase a human and welcoming city; cutting-edge gastronomy and respect for public space.",
+              "image": {
+                "url": "https://plus.unsplash.com/premium_photo-1691414363231-836e2e1bf0ed?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y29wZW5oYWdlfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500",
+                "alt": "Copenhagen"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Slovenia",
+          "cities": [
+            {
+              "name": "Ljubljana",
+              "description": "Small and scenic capital, with a pedestrian center, riverside cafes, and the castle on top. Ideal base for excursions to Lake Bled and the Julian Alps.",
+              "image": {
+                "url": "https://images.unsplash.com/photo-1611576191056-3e6696029388?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8TGl1YmxpYW5hfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500",
+                "alt": "Ljubljana"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Spain",
+          "cities": [
+            {
+              "name": "Barcelona",
+              "description": "Gaudí's Modernism, sea and mountain on the same plane. The Sagrada Familia, Park Güell, and neighborhood life coexist with markets and museums; walks from Montjuïc to the beaches.",
+              "image": {
+                "url": "https://images.unsplash.com/photo-1630219694734-fe47ab76b15e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8YmFyY2Vsb25hfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500",
+                "alt": "Barcelona"
+              }
+            },
+            {
+              "name": "Seville",
+              "description": "Monumental historic center, patios, and tiles. The Alcázar, the Cathedral, and the Santa Cruz neighborhood add to a powerful culture of tapas and flamenco.",
+              "image": {
+                "url": "https://images.unsplash.com/photo-1559564477-6e8582270002?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8c2V2aWxsYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500",
+                "alt": "Seville"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Estonia",
+          "cities": [
+            {
+              "name": "Tallinn",
+              "description": "Walled medieval old town, towers, and colorful roofs overlooking the Baltic. Cold winter, but photogenic from Toompea.",
+              "image": {
+                "url": "https://images.unsplash.com/photo-1709862366377-54b16f3e51f9?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGFsbGlufGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500",
+                "alt": "Tallinn"
+              }
+            }
+          ]
+        },
+        {
+          "name": "France",
+          "cities": [
+            {
+              "name": "Paris",
+              "description": "Urban romance: Seine, boulevards, and iconic museums. Neighborhoods with their own identity and street-level cafes; Notre Dame, Sacré-Coeur, and the Eiffel Tower as essential landmarks.",
+              "image": {
+                "url": "https://plus.unsplash.com/premium_photo-1661919210043-fd847a58522d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGFyaXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
+                "alt": "Paris"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Hungary",
+          "cities": [
+            {
+              "name": "Budapest",
+              "description": "Art Nouveau architecture, thermal baths, and night walks over the Danube. The Parliament shines at dusk from the Chain Bridge.",
+              "image": {
+                "url": "https://images.unsplash.com/photo-1565426873118-a17ed65d74b9?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8QnVkYXBlc3R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
+                "alt": "Budapest"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Italy",
+          "cities": [
+            {
+              "name": "Florence",
+              "description": "Cradle of the Renaissance: Duomo, Uffizi, and crafts in the Oltrarno. A living museum-city where every street holds sculptures, palaces, and workshops.",
+              "image": {
+                "url": "https://images.unsplash.com/photo-1476362174823-3a23f4aa6d76?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZmxvcmVuY2lhfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500",
+                "alt": "Florence"
+              }
+            },
+            {
+              "name": "Rome",
+              "description": "The \"Eternal City\" combines classical ruins, baroque squares, and neighborhood life. From the Pantheon to the Trevi Fountain, history coexists with trattorias and terraces.",
+              "image": {
+                "url": "https://images.unsplash.com/photo-1529154036614-a60975f5c760?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cm9tYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500",
+                "alt": "Rome"
+              }
+            },
+            {
+              "name": "Venice",
+              "description": "Without cars and with a unique aquatic layout. Canals, palaces, and bridges connect islands; from San Marco to the quieter neighborhoods, it is pure contemplation.",
+              "image": {
+                "url": "https://plus.unsplash.com/premium_photo-1661963047742-dabc5a735357?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dmVuZWNpYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500",
+                "alt": "Venice"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Malta",
+          "cities": [
+            {
+              "name": "Valletta",
+              "description": "Fortified and baroque, with viewpoints to the Grand Harbour. Palaces, churches, and museums concentrated in a compact and walkable center.",
+              "image": {
+                "url": "https://images.unsplash.com/photo-1560365337-6f42f70dd874?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGElMjB2YWxldGF8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
+                "alt": "Valletta"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Norway",
+          "cities": [
+            {
+              "name": "Bergen",
+              "description": "Wooden houses in Bryggen, lively port, and mountains that fall into fjords. Perfect starting point for scenic routes.",
+              "image": {
+                "url": "https://images.unsplash.com/photo-1643193388440-50fae300e1da?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8QmVyZ2VuJTIwbm9ydWVnYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500",
+                "alt": "Bergen"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Netherlands",
+          "cities": [
+            {
+              "name": "Amsterdam",
+              "description": "UNESCO World Heritage canals, narrow gables, and cycling culture. Top-level museums and green neighborhoods connected by bridges.",
+              "image": {
+                "url": "https://plus.unsplash.com/premium_photo-1661878122586-2d75a86f3400?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8JUMzJTgxbXN0ZXJkYW18ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
+                "alt": "Amsterdam"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Portugal",
+          "cities": [
+            {
+              "name": "Porto",
+              "description": "Tiles, bridges over the Douro, and Port wine cellars. Lello bookstore and Leça swimming pools as contemporary icons.",
+              "image": {
+                "url": "https://plus.unsplash.com/premium_photo-1677344087971-91eee10dfeb1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8b3BvcnRvJTIwcG9ydHVnYWx8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
+                "alt": "Porto"
+              }
+            }
+          ]
+        },
+        {
+          "name": "United Kingdom",
+          "cities": [
+            {
+              "name": "London",
+              "description": "History and avant-garde on the banks of the Thames. Free museums, immense parks, and an inexhaustible cultural and gastronomic scene.",
+              "image": {
+                "url": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bG9uZHJlc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500",
+                "alt": "London"
+              }
+            },
+            {
+              "name": "Edinburgh",
+              "description": "Royal Mile, castle, and green hills. The volcanic rock of Arthur's Seat offers an exceptional panoramic view over the city of stone.",
+              "image": {
+                "url": "https://images.unsplash.com/photo-1569668444050-b7bc2bfec0c7?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZWRpbmJ1cmdvfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500",
+                "alt": "Edinburgh"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Czech Republic",
+          "cities": [
+            {
+              "name": "Prague",
+              "description": "Domes and gothic towers over a photogenic old town. Charles Bridge at dawn and historic cafes with music and literature.",
+              "image": {
+                "url": "https://plus.unsplash.com/premium_photo-1661963067279-2f7bf970c49c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJhZ2F8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
+                "alt": "Prague"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Switzerland",
+          "cities": [
+            {
+              "name": "Lucerne",
+              "description": "Lake, nearby mountains, and the Kapellbrücke as a postcard. Medieval roofs and alpine air a few minutes from mountain routes.",
+              "image": {
+                "url": "https://images.unsplash.com/photo-1635855296516-837d8b00cae7?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8THVjZXJuYSUyMHN1aXphfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500",
+                "alt": "Lucerne"
+              }
+            },
+            {
+              "name": "Zurich",
+              "description": "Elegant old town next to the lake, museums, galleries, and life by the water. Vibrant summers and Swiss efficiency in every detail.",
+              "image": {
+                "url": "https://images.unsplash.com/photo-1620563092215-0fbc6b55cfc5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1171",
+                "alt": "Zurich"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Iceland",
+          "cities": [
+            {
+              "name": "Reykjavik",
+              "description": "Modern architecture like Harpa and Hallgrímskirkja among volcanic landscapes. Base for auroras and nearby thermal baths.",
+              "image": {
+                "url": "https://plus.unsplash.com/premium_photo-1661962984700-16b03ecda58a?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8UmVpa2lhdmlrfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500",
+                "alt": "Reykjavik"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Asia",
+      "countries": [
+        {
+          "name": "China",
+          "cities": [
+            {
+              "name": "Beijing",
+              "description": "Imperial capital with the Forbidden City, hutongs, and wide avenues. Gateway to nearby sections of the Great Wall and a very rich regional cuisine.",
+              "image": {
+                "url": "https://plus.unsplash.com/premium_photo-1723433351351-0f6cd5d21537?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8QmVpamluZ3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500",
+                "alt": "Beijing"
+              }
+            },
+            {
+              "name": "Hong Kong",
+              "description": "Dense skyline around a harbor full of ferries. Mountains, islands, and nature reserves minutes from the financial center.",
+              "image": {
+                "url": "https://images.unsplash.com/photo-1536599018102-9f803c140fc1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aG9uZyUyMGtvbmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
+                "alt": "Hong Kong"
+              }
+            }
+          ]
+        },
+        {
+          "name": "South Korea",
+          "cities": [
+            {
+              "name": "Seoul",
+              "description": "Skyscrapers and palaces, night markets, and an impeccable subway system. Districts like Bukchon and Myeongdong showcase tradition and fashion.",
+              "image": {
+                "url": "https://plus.unsplash.com/premium_photo-1661936414165-3039a8d906f9?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8c2V1bHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500",
+                "alt": "Seoul"
+              }
+            }
+          ]
+        },
+        {
+          "name": "India",
+          "cities": [
+            {
+              "name": "Jaipur",
+              "description": "The \"Pink City\": Hawa Mahal, forts, and salmon-colored bazaars. Crafts, jewelry, and gastronomy of Rajasthan in palaces and streets.",
+              "image": {
+                "url": "https://images.unsplash.com/photo-1477587458883-47145ed94245?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8SmFpcHVyJTIwaW5kaWF8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
+                "alt": "Jaipur"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Japan",
+          "cities": [
+            {
+              "name": "Kyoto",
+              "description": "Temples, shrines, and classic gardens. Hanami in spring, wooded routes, and the possibility of crossing paths with geishas in Gion.",
+              "image": {
+                "url": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8S2lvdG98ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
+                "alt": "Kyoto"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Laos",
+          "cities": [
+            {
+              "name": "Luang Prabang",
+              "description": "UNESCO World Heritage Site next to the confluence of rivers. Processions of monks at dawn, nearby waterfalls, and colonial-Buddhist architecture.",
+              "image": {
+                "url": "https://plus.unsplash.com/premium_photo-1661882477461-20d16af70819?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8THVhbmclMjBQcmFiYW5nfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500",
+                "alt": "Luang Prabang"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Lebanon",
+          "cities": [
+            {
+              "name": "Beirut",
+              "description": "Beaches, clubs, and rooftops facing mosques and historic souks. Gastronomy and nightlife with a Mediterranean and Levantine flair.",
+              "image": {
+                "url": "https://plus.unsplash.com/premium_photo-1661963342411-11bc8489a1fe?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8QmVpcnV0JTIwbGliYW5vfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500",
+                "alt": "Beirut"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Oman",
+          "cities": [
+            {
+              "name": "Muscat",
+              "description": "Bays and mountains framing mosques, souks, and Portuguese forts. Coastal walks and white architecture next to the Gulf of Oman.",
+              "image": {
+                "url": "https://images.unsplash.com/photo-1725600462847-0317804cc466?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8TWFzY2F0ZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500",
+                "alt": "Muscat"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Qatar",
+          "cities": [
+            {
+              "name": "Doha",
+              "description": "Corniche with a futuristic skyline, Souq Waqif, and the Museum of Islamic Art by I. M. Pei. A mix of tradition and new cultural areas.",
+              "image": {
+                "url": "https://images.unsplash.com/photo-1539475314840-751cecc1dacd?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8RG9oYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500",
+                "alt": "Doha"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Thailand",
+          "cities": [
+            {
+              "name": "Chiang Mai",
+              "description": "Temples on the hillside, cafes, and creative markets. Starting point for northern nature and intense culinary experiences.",
+              "image": {
+                "url": "https://plus.unsplash.com/premium_photo-1661929242720-140374d97c94?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Q2hpYW5nJTIwTWFpfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500",
+                "alt": "Chiang Mai"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Vietnam",
+          "cities": [
+            {
+              "name": "Hanoi",
+              "description": "Lakes, temples, and a French quarter with a romantic air. Narrow streets with traditional cafes and vibrant markets.",
+              "image": {
+                "url": "https://plus.unsplash.com/premium_photo-1691960159290-6f4ace6e6c4c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8SGFub2l8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
+                "alt": "Hanoi"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Singapore",
+          "cities": [
+            {
+              "name": "Singapore",
+              "description": "Garden city with urban jungle, Botanical Garden, and Gardens by the Bay. Temples, heritage houses, and impeccable logistics for getting around.",
+              "image": {
+                "url": "https://images.unsplash.com/photo-1508964942454-1a56651d54ac?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2luZ2Fwb3JlfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500",
+                "alt": "Singapore"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Africa",
+      "countries": [
+        {
+          "name": "Morocco",
+          "cities": [
+            {
+              "name": "Chefchaouen",
+              "description": "Blue Medina among the Rif Mountains. Painted alleys, handcrafted doors, and nearby viewpoints to see the whole from above.",
+              "image": {
+                "url": "https://images.unsplash.com/photo-1569383746724-6f1b882b8f46?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
+                "alt": "Chefchaouen"
+              }
+            }
+          ]
+        },
+        {
+          "name": "South Africa",
+          "cities": [
+            {
+              "name": "Cape Town",
+              "description": "Table Mountain, beaches with penguins, and colorful neighborhoods like Bo-Kaap. Gardens, nearby vineyards, and scenic coastal routes.",
+              "image": {
+                "url": "https://plus.unsplash.com/premium_photo-1697730061063-ad499e343f26?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Q2l1ZGFkJTIwZGVsJTIwQ2Fib3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500",
+                "alt": "Cape Town"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Oceania",
+      "countries": [
+        {
+          "name": "Australia",
+          "cities": [
+            {
+              "name": "Sydney",
+              "description": "Iconic Opera House, navigable bay, and urban beaches like Bondi. Daily ferries and waterfront parks.",
+              "image": {
+                "url": "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8UyVDMyVBRGRuZXl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
+                "alt": "Sydney"
+              }
+            }
+          ]
+        },
+        {
+          "name": "New Zealand",
+          "cities": [
+            {
+              "name": "Queenstown",
+              "description": "Adrenaline capital between lake and mountains. Natural viewpoints, adventures, and cinematic landscapes.",
+              "image": {
+                "url": "https://images.unsplash.com/photo-1600466403153-50193d187dde?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8UXVlZW5zdG93bnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500",
+                "alt": "Queenstown"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "North America",
+      "countries": [
+        {
+          "name": "Canada",
+          "cities": [
+            {
+              "name": "Quebec City",
+              "description": "Walled old town on high ground overlooking the St. Lawrence. European atmosphere, steep roofs, and pink sunsets.",
+              "image": {
+                "url": "https://images.unsplash.com/photo-1576771304215-6d4d30f7bb63?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fENpdWRhZCUyMGRlJTIwUXVlYmVjfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500",
+                "alt": "Quebec City"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Cuba",
+          "cities": [
+            {
+              "name": "Havana",
+              "description": "Colonial architecture in pastel tones, music on every corner, and seaside promenades. Old Havana and the Malecón set the rhythm.",
+              "image": {
+                "url": "https://images.unsplash.com/photo-1570299437488-d430e1e677c7?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8TGElMjBIYWJhbmF8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
+                "alt": "Havana"
+              }
+            }
+          ]
+        },
+        {
+          "name": "United States",
+          "cities": [
+            {
+              "name": "New York",
+              "description": "Iconic architecture, parks like Central Park, and an unparalleled art scene. Urban energy that never fades.",
+              "image": {
+                "url": "https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8TnVldmElMjBZb3JrfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500",
+                "alt": "New York"
+              }
+            },
+            {
+              "name": "San Francisco",
+              "description": "Golden Gate Bridge, hills, and Victorian houses. World-class museums and neighborhoods with their own character.",
+              "image": {
+                "url": "https://images.unsplash.com/photo-1719858403364-83f7442a197e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8U2FuJTIwRnJhbmNpc2NvfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500",
+                "alt": "San Francisco"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Mexico",
+          "cities": [
+            {
+              "name": "San Miguel de Allende",
+              "description": "Colonial center with a pink Neo-Gothic parish. Cobblestone streets, courtyards, and art in galleries and workshops.",
+              "image": {
+                "url": "https://plus.unsplash.com/premium_photo-1697729800872-866107ce82c4?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8U2FuJTIwTWlndWVsJTIwZGUlMjBBbGxlbmRlfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500",
+                "alt": "San Miguel de Allende"
+              }
+            }
+          ]
+        },
+        {
+          "name": "South America",
+          "countries": [
+            {
+              "name": "Argentina",
+              "cities": [
+                {
+                  "name": "Buenos Aires",
+                  "description": "Neighborhoods with strong identity (Recoleta, San Telmo, La Boca), diverse architecture and intense cultural life. Tango, steakhouses and iconic bookshops.",
+                  "image": {
+                    "url": "https://plus.unsplash.com/premium_photo-1697729901052-fe8900e24993?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8QnVlbm9zJTIwQWlyZXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
+                    "alt": "Buenos Aires"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "Brazil",
+              "cities": [
+                {
+                  "name": "Rio de Janeiro",
+                  "description": "Legendary beaches, urban jungle and Christ the Redeemer watching over bays and hills. Samba rhythm in streets and squares.",
+                  "image": {
+                    "url": "https://plus.unsplash.com/premium_photo-1671211307997-f4f552b0601c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8UiVDMyVBRG8lMjBkZSUyMEphbmVpcm98ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
+                    "alt": "Rio de Janeiro"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "Colombia",
+              "cities": [
+                {
+                  "name": "Cartagena",
+                  "description": "Walled city, plazas and colonial houses covered in bougainvillea. Getsemaní and Bocagrande display its creative and modern sides.",
+                  "image": {
+                    "url": "https://images.unsplash.com/photo-1583531352515-8884af319dc1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Q2FydGFnZW5hJTIwY29sb21iaWF8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
+                    "alt": "Cartagena"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "Ecuador",
+              "cities": [
+                {
+                  "name": "Quito",
+                  "description": "Golden historic center beneath Andean volcanoes. Views from the Basilica of the National Vow and traditional markets.",
+                  "image": {
+                    "url": "https://plus.unsplash.com/premium_photo-1697729921570-a7e324d7baac?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8UXVpdG98ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
+                    "alt": "Quito"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "Peru",
+              "cities": [
+                {
+                  "name": "Cusco",
+                  "description": "Ancient Inca capital with plazas, convents and cobblestone streets. Starting point to Machu Picchu and viewpoints like Cristo Blanco.",
+                  "image": {
+                    "url": "https://images.unsplash.com/photo-1609944433409-81bda5323abc?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Q3V6Y298ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
+                    "alt": "Cusco"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

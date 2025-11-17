@@ -31,7 +31,7 @@ $(function() {
         }
     })
 
-    const DEFAULT_AVATAR_PATH = '../assets/images/default-avatar.jpg';
+    const DEFAULT_AVATAR_PATH = '../images/default-avatar.jpg';
 
     // Actualiza el header
     function updateHeader() {
