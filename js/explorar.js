@@ -106,8 +106,13 @@ $(function() {
     // Asigna la función de filtrado al evento 'input' del buscador
     $searchBox.on('input', filterDestinations);
 
+    let destinations_path = '../data/ciudades-del-mundo-es.json';
+    if (localStorage.getItem('lang') === 'en') {
+        destinations_path = '../data/ciudades-del-mundo-en.json';
+    }
+
     // Carga inicial de datos
-    $.getJSON('../data/ciudades-del-mundo-es.json')
+    $.getJSON(destinations_path)
         .done(function(data) {
             allDestinations = data.continents; // Guarda los datos en la variable global
 

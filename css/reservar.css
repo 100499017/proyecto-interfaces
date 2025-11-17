@@ -1,0 +1,50 @@
+/* Estilos para la página de reserva */
+
+#booking-form-container {
+    max-width: 600px;
+    margin: 3rem auto;
+    padding: 2.5rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+#booking-form-container h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+#booking-form-container p {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+#auth-warning {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #333;
+    background-color: #f9f9f9;
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid var(--color-borde);
+}
+
+#auth-warning a {
+    font-weight: bold;
+    color: var(--color-primario);
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#success-message {
+    display: none;
+    color: var(--color-exito);
+    border: 1px solid #2f6f3f;
+    border-radius: 4px;
+    padding: 1rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}

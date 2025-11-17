@@ -1,13 +1,13 @@
-<!--Página de inicio-->
+<!--Página de reserva de billetes-->
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ciudades del Mundo</title>
-    <link rel="icon" type="image/png" href="images/favicon.png">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/home.css">
+    <title>Reservar | Ciudades del Mundo</title>
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/reservar.css">
 </head>
 <body>
     <header>
@@ -15,18 +15,18 @@
 
             <!--Logo-->
             <div class="logo">
-                <a href="index.html">
-                    <img src="images/logo.png" alt="Logo del sitio">
+                <a href="../index.html">
+                    <img src="../images/logo.png" alt="Logo del sitio">
                 </a>
             </div>
 
             <!--Navegación-->
             <nav id="nav-links">
-                <a href="index.html">Inicio</a>
-                <a href="pages/explorar.html">Explorar</a>
-                <a href="pages/comunidad.html">Comunidad</a>
-                <a href="pages/reservar.html">Reservar</a>
-                <a href="pages/otros-rincones.html">Otros Rincones</a>
+                <a href="../index.html">Inicio</a>
+                <a href="explorar.html">Explorar</a>
+                <a href="comunidad.html">Comunidad</a>
+                <a href="reservar.html">Reservar</a>
+                <a href="otros-rincones.html">Otros Rincones</a>
             </nav>
 
             <div id="lang-login">
@@ -56,34 +56,41 @@
         </div>
     </header>
     <main>
-        <div class="carousel-container">
-            <div class="carousel-track">
-                <div class="carousel-slide">
-                    <img src="images/slide-1.jpg" alt="">
-                </div>
-
-                <div class="carousel-slide">
-                    <img src="images/slide-2.jpg" alt="">
-                </div>
-
-                <div class="carousel-slide">
-                    <img src="images/slide-3.jpg" alt="">
-                </div>
-
-                <div class="carousel-slide">
-                    <img src="images/slide-4.jpg" alt="">
-                </div>
-
-                <div class="carousel-slide">
-                    <img src="images/slide-5.jpg" alt="">
-                </div>
-            </div>
-
-            <div class="carousel-nav"></div>
-        </div>
-
         <div class="main-container">
-            <!--Contenido principal aquí-->
+            <div id="booking-form-container">
+                <h2>Reserva tu Próximo Viaje</h2>
+                <p>Completa los datos para tu reserva. Los billetes aparecerán en tu perfil.</p>
+
+                <div id="success-message">
+                    ¡Reserva completada con éxito!
+                </div>
+
+                <form id="booking-form">
+                    <div class="form-group">
+                        <label for="origen">Origen:</label>
+                        <input type="text" id="origen" name="origen" placeholder="Ej: Madrid, España" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="destino">Destino:</label>
+                        <input type="text" id="destino" name="destino" placeholder="Ej: Tokio, Japón" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fecha">Fecha de Salida:</label>
+                        <input type="date" id="fecha" name="fecha" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pasajeros">Pasajeros:</label>
+                        <input type="number" id="pasajeros" name="pasajeros" min="1" value="1" required>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Confirmar Reserva</button>
+                </form>
+
+                <div id="auth-warning"></div>
+            </div>
         </div>
     </main>
     <footer>
@@ -110,14 +117,14 @@
                 <button type="submit" class="submit-btn">Entrar</button>
             </form>
             <p class="modal-register-link">
-                ¿No tienes una cuenta? <a href="pages/registro.html">Regístrate aquí.</a>
+                ¿No tienes una cuenta? <a href="registro.html">Regístrate aquí.</a>
             </p>
         </div>
     </div>
 
     <!--Scripts-->
-    <script src="js/jquery-3.7.1.min.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/home.js"></script>
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/reservar.js"></script>
 </body>
 </html>
