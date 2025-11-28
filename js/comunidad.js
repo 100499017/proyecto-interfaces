@@ -1,1 +1,174 @@
 /* Lógica para página de comunidad */
+
+// /js/comunidad.js
+
+$(function() {
+
+    // --- 1. ELEMENTOS DEL DOM ---
+    const $postBox = $('#post-box');
+    const $postForm = $('#post-form');
+    const $postContent = $('#post-content');
+    const $postType = $('#post-type'); // El selector de tipo
+    const $authWarning = $('#post-auth-warning');
+    const $feed = $('#posts-feed'); // Donde van los posts
+    const $userList = $('#user-list');
+
+    // Variable para controlar el filtro activo
+    let currentFilter = 'all'; 
+
+    // Rutas dinámicas para imágenes
+    let pathPrefix = window.location.pathname.includes('/pages/') ? '..' : '.';
+    const DEFAULT_AVATAR = `${pathPrefix}/assets/images/default-avatar.png`;
+
+    // --- 2. COMPROBAR SESIÓN ---
+    const loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser'));
+
+    if (loggedInUser) {
+        $postBox.show();
+        $authWarning.hide();
+    } else {
+        $postBox.hide();
+        $authWarning.show();
+        
+        $('#login-link-comm').on('click', function() {
+            if(typeof openModal === 'function') openModal();
+        });
+    }
+
+    // --- 3. LÓGICA DE PUBLICAR ---
+    $postForm.on('submit', function(e) {
+        e.preventDefault();
+        
+        // Volvemos a leer el usuario por seguridad
+        const currentUser = JSON.parse(sessionStorage.getItem('loggedInUser'));
+        if (!currentUser) return;
+
+        const text = $postContent.val().trim();
+        const type = $postType.val(); // Leemos si es consejo o pregunta
+
+        if (!text) return;
+
+        // Leer posts actuales
+        const posts = JSON.parse(localStorage.getItem('communityPosts')) || [];
+
+        // Crear nuevo post
+        const newPost = {
+            id: Date.now(),
+            userEmail: currentUser.email,
+            userName: currentUser.name,
+            // Guardamos avatar o el por defecto
+            userAvatar: currentUser.avatar || DEFAULT_AVATAR,
+            date: new Date().toLocaleDateString(),
+            content: text,
+            type: type, // Guardamos el tipo
+            comments: []
+        };
+
+        // Añadir al principio
+        posts.unshift(newPost);
+        localStorage.setItem('communityPosts', JSON.stringify(posts));
+
+        // Limpiar formulario y recargar lista
+        $postContent.val('');
+        renderPosts();
+    });
+
+    // --- 4. LÓGICA DE FILTROS (¡ESTO FALTABA O FALLABA!) ---
+    $('.filter-btn').on('click', function() {
+        // 1. Cambiar estilo visual de los botones
+        $('.filter-btn').removeClass('active');
+        $(this).addClass('active');
+
+        // 2. Actualizar la variable de filtro
+        currentFilter = $(this).data('filter'); // 'all', 'consejo' o 'pregunta'
+
+        // 3. Volver a pintar la lista con el filtro aplicado
+        renderPosts();
+    });
+
+    // --- 5. RENDERIZAR POSTS (FUNCIÓN PRINCIPAL) ---
+    function renderPosts() {
+        $feed.empty(); // ¡IMPORTANTE! Limpia el mensaje de "Cargando..."
+
+        let posts = JSON.parse(localStorage.getItem('communityPosts')) || [];
+
+        // ** APLICAR FILTRO **
+        if (currentFilter !== 'all') {
+            posts = posts.filter(post => post.type === currentFilter);
+        }
+
+        // Si no hay posts (después de filtrar)
+        if (posts.length === 0) {
+            const emptyMsg = currentFilter === 'all' 
+                ? 'Aún no hay publicaciones. ¡Sé el primero!' 
+                : `No hay ${currentFilter}s publicadas todavía.`;
+            
+            $feed.html(`<p class="no-posts" style="text-align:center; padding:2rem; color:#888;">${emptyMsg}</p>`);
+            return;
+        }
+
+        // Generar HTML para cada post
+        posts.forEach(post => {
+            const avatarSrc = post.userAvatar || DEFAULT_AVATAR;
+            
+            // Determinar etiqueta (badge) y estilo
+            const postType = post.type || 'consejo'; // Por defecto consejo si es antiguo
+            const badgeClass = postType === 'pregunta' ? 'badge-pregunta' : 'badge-consejo';
+            const badgeText = postType === 'pregunta' ? '❓ Pregunta' : '💡 Consejo';
+
+            const html = `
+                <div class="post-card">
+                    <span class="post-badge ${badgeClass}">${badgeText}</span>
+
+                    <div class="post-header">
+                        <img src="${avatarSrc}" alt="${post.userName}" class="post-avatar">
+                        <div class="post-info">
+                            <h4>${post.userName}</h4>
+                            <p class="post-date">${post.date}</p>
+                        </div>
+                    </div>
+                    <div class="post-body">
+                        ${post.content}
+                    </div>
+                    <div class="post-footer" style="margin-top: 1rem; border-top: 1px solid #eee; padding-top: 0.5rem;">
+                        <a href="detalle-post.html?id=${post.id}" class="btn-comment" style="text-decoration:none; color:#005A9C; font-weight:600;">
+                            💬 Ver comentarios (${post.comments ? post.comments.length : 0})
+                        </a>
+                    </div>
+                </div>
+            `;
+            $feed.append(html);
+        });
+    }
+
+    // --- 6. BARRA LATERAL (OTROS USUARIOS) ---
+    function renderSidebarUsers() {
+        const allUsers = JSON.parse(localStorage.getItem('users')) || [];
+        $userList.empty();
+
+        const otherUsers = allUsers.filter(u => !loggedInUser || u.email !== loggedInUser.email);
+        const usersToShow = otherUsers.slice(0, 5);
+
+        if (usersToShow.length === 0) {
+            $userList.html('<p style="font-size:0.9rem; color:#777;">No hay otros viajeros registrados.</p>');
+            return;
+        }
+
+        usersToShow.forEach(user => {
+            const avatarSrc = user.avatar || DEFAULT_AVATAR;
+            const html = `
+                <div class="sidebar-user">
+                    <img src="${avatarSrc}" alt="${user.name}">
+                    <span>${user.name}</span>
+                </div>
+            `;
+            $userList.append(html);
+        });
+    }
+
+    // --- 7. INICIALIZACIÓN (¡ESTO ES LO QUE HACÍA QUE NO CARGARA!) ---
+    // Llamamos a las funciones para que se ejecuten nada más abrir la página
+    renderPosts();
+    renderSidebarUsers();
+
+});

@@ -1,1 +1,133 @@
 <!--Página de "Comunidad"-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunidad | Ciudades del Mundo</title>
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/comunidad.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+
+            <!--Logo-->
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../images/logo.png" alt="Logo del sitio">
+                </a>
+            </div>
+
+            <!--Navegación-->
+            <nav id="nav-links">
+                <a href="../index.html">Inicio</a>
+                <a href="explorar.html">Explorar</a>
+                <a href="comunidad.html">Comunidad</a>
+                <a href="reservar.html">Reservar</a>
+                <a href="otros-rincones.html">Otros Rincones</a>
+            </nav>
+
+            <div id="lang-login">
+                <!--Selector de idioma-->
+                <div id="lang-selector">
+                    <button id="lang-trigger-btn" aria-haspopup="true" aria-expanded="false">
+                        <span class="lang-text" id="current-lang-text">Español</span>
+                        <span id="lang-arrow">&triangledown;</span>
+                    </button>
+
+                    <ul id="lang-menu" role="menu">
+                        <li role="menuitem" data-lang="es">
+                            <span class="lang-text">Español</span>
+                        </li>
+
+                        <li role="menuitem" data-lang="en">
+                            <span class="lang-text">English</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!--Botón para iniciar sesión-->
+                <div class="auth-container">
+                    <button class="login-btn">Iniciar sesión</button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="main-container community-layout">
+            <section class="feed-section">
+                <h1>Comunidad</h1>
+                <p class="subtitle">Comparte tus experiencias y descubre consejos recientes.</p>
+
+                <div id="post-box">
+                    <h3>¿Qué quieres compartir hoy?</h3>
+                    <form id="post-form">
+                        <div class="form-group">
+                            <label for="post-type">Tipo de publicación:</label>
+                            <select id="post-type" class="form-select">
+                                <option value="consejo">&#x1F4A1; Consejo</option>
+                                <option value="pregunta">&#x2048; Pregunta</option>
+                            </select>
+                            <textarea id="post-content" rows="3" placeholder="Escribe aquí tu consejo, pregunta o experiencia..." required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn small-btn">Publicar</button>
+                    </form>
+                </div>
+
+                <div class="auth-warning" id="post-auth-warning">
+                    <p>¿Quieres participar? <a id="login-link-comm">Inicia sesión</a> para publicar.</p>
+                </div>
+
+                <div class="feed-filters">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="consejo">&#x1F4A1; Consejos</button>
+                    <button class="filter-btn" data-filter="pregunta">&#x2048; Preguntas</button>
+                </div>
+
+                <div id="posts-feed">
+                    <p class="loading-text">Cargando consejos...</p>
+                </div>
+            </section>
+            <aside class="sidebar-section">
+                <h3>Otros Viajeros</h3>
+                <div id="user-list"></div>
+            </aside>
+        </div>
+    </main>
+    <footer>
+        <p>Copyright © 2025 Ciudades del Mundo</p>
+    </footer>
+
+    <!--Ventana emergente de inicio de sesión-->
+    <div class="modal-overlay" id="login-modal">
+        <div class="modal-content">
+            <!--Botón de cierre-->
+            <span class="modal-close" id="close-modal-btn">&times;</span>
+
+            <!--Formulario-->
+            <h2>Iniciar Sesión</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-email">Email:</label>
+                    <input type="email" id="login-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Contraseña:</label>
+                    <input type="password" id="login-password" name="password" required>
+                </div>
+                <button type="submit" class="submit-btn">Entrar</button>
+            </form>
+            <p class="modal-register-link">
+                ¿No tienes una cuenta? <a href="registro.html">Regístrate aquí.</a>
+            </p>
+        </div>
+    </div>
+
+    <!--Scripts-->
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/comunidad.js"></script>
+</body>
+</html>

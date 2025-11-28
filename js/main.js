@@ -100,11 +100,8 @@ $(function() {
             // Usamos sessionStorage para mantener la sesión iniciada
             sessionStorage.setItem('loggedInUser', JSON.stringify(foundUser));
 
-            // Cierra el modal y actualiza la interfaz
-            closeModal();
-            
-            // Actualiza el header
-            updateHeader();
+            // Recarga la página
+            window.location.reload();
         } else {
             alert('Email o contraseña incorrectos.');
         }
