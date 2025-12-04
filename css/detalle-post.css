@@ -1,0 +1,66 @@
+/* /css/detalle-post.css */
+
+.back-link {
+    display: inline-block;
+    margin: 2rem 0 1rem;
+    color: #666;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.back-link:hover {
+    color: #005A9C; /* Tu color primario */
+}
+
+.comments-section {
+    margin-top: 2rem;
+    max-width: 800px;
+    border-top: 1px solid #eee;
+    padding-top: 2rem;
+}
+
+.comment-form-box {
+    margin-bottom: 2rem;
+}
+
+.comment-form-box textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+/* TARJETA DE COMENTARIO */
+.comment-card {
+    background-color: #f8f9fa; /* Gris muy suave */
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-left: 4px solid #ddd; /* Línea decorativa */
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between; /* Nombre a la izq, fecha a la der */
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.comment-author {
+    font-weight: bold;
+    color: #333;
+}
+
+.comment-date {
+    color: #999;
+    font-size: 0.8rem;
+}
+
+.comment-body {
+    color: #444;
+    line-height: 1.5;
+}

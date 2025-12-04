@@ -4,7 +4,7 @@
 
 $(function() {
 
-    // --- 1. ELEMENTOS DEL DOM ---
+    // --- ELEMENTOS DEL DOM ---
     const $postBox = $('#post-box');
     const $postForm = $('#post-form');
     const $postContent = $('#post-content');
@@ -17,10 +17,10 @@ $(function() {
     let currentFilter = 'all'; 
 
     // Rutas dinámicas para imágenes
-    let pathPrefix = window.location.pathname.includes('/pages/') ? '..' : '.';
+    let pathPrefix = window.location.pathname.includes('/pages/') ? '.' : '..';
     const DEFAULT_AVATAR = `${pathPrefix}/assets/images/default-avatar.png`;
 
-    // --- 2. COMPROBAR SESIÓN ---
+    // --- COMPROBAR SESIÓN ---
     const loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser'));
 
     if (loggedInUser) {
@@ -35,7 +35,7 @@ $(function() {
         });
     }
 
-    // --- 3. LÓGICA DE PUBLICAR ---
+    // --- LÓGICA DE PUBLICAR ---
     $postForm.on('submit', function(e) {
         e.preventDefault();
         
@@ -73,26 +73,26 @@ $(function() {
         renderPosts();
     });
 
-    // --- 4. LÓGICA DE FILTROS (¡ESTO FALTABA O FALLABA!) ---
+    // --- LÓGICA DE FILTROS ---
     $('.filter-btn').on('click', function() {
-        // 1. Cambiar estilo visual de los botones
+        // Cambiar estilo visual de los botones
         $('.filter-btn').removeClass('active');
         $(this).addClass('active');
 
-        // 2. Actualizar la variable de filtro
+        // Actualizar la variable de filtro
         currentFilter = $(this).data('filter'); // 'all', 'consejo' o 'pregunta'
 
-        // 3. Volver a pintar la lista con el filtro aplicado
+        // Volver a pintar la lista con el filtro aplicado
         renderPosts();
     });
 
     // --- 5. RENDERIZAR POSTS (FUNCIÓN PRINCIPAL) ---
     function renderPosts() {
-        $feed.empty(); // ¡IMPORTANTE! Limpia el mensaje de "Cargando..."
+        $feed.empty(); // Limpia el mensaje de "Cargando..."
 
         let posts = JSON.parse(localStorage.getItem('communityPosts')) || [];
 
-        // ** APLICAR FILTRO **
+        // APLICAR FILTRO
         if (currentFilter !== 'all') {
             posts = posts.filter(post => post.type === currentFilter);
         }
@@ -166,7 +166,7 @@ $(function() {
         });
     }
 
-    // --- 7. INICIALIZACIÓN (¡ESTO ES LO QUE HACÍA QUE NO CARGARA!) ---
+    // --- INICIALIZACIÓN ---
     // Llamamos a las funciones para que se ejecuten nada más abrir la página
     renderPosts();
     renderSidebarUsers();

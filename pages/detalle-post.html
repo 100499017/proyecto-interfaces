@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservar | Ciudades del Mundo</title>
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/detalle-post.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+
+            <!--Logo-->
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../images/logo.png" alt="Logo del sitio">
+                </a>
+            </div>
+
+            <!--Navegación-->
+            <nav id="nav-links">
+                <a href="../index.html">Inicio</a>
+                <a href="explorar.html">Explorar</a>
+                <a href="comunidad.html">Comunidad</a>
+                <a href="reservar.html">Reservar</a>
+                <a href="otros-rincones.html">Otros Rincones</a>
+            </nav>
+
+            <div id="lang-login">
+                <!--Selector de idioma-->
+                <div id="lang-selector">
+                    <button id="lang-trigger-btn" aria-haspopup="true" aria-expanded="false">
+                        <span class="lang-text" id="current-lang-text">Español</span>
+                        <span id="lang-arrow">&triangledown;</span>
+                    </button>
+
+                    <ul id="lang-menu" role="menu">
+                        <li role="menuitem" data-lang="es">
+                            <span class="lang-text">Español</span>
+                        </li>
+
+                        <li role="menuitem" data-lang="en">
+                            <span class="lang-text">English</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!--Botón para iniciar sesión-->
+                <div class="auth-container">
+                    <button class="login-btn">Iniciar sesión</button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="main-container">
+            <a href="comunidad.html" class="back-link">← Volver a la Comunidad</a>
+
+            <div id="original-post-container">
+            </div>
+
+            <section class="comments-section">
+                <h3>Comentarios</h3>
+
+                <div class="comment-form-box" id="comment-form-box">
+                    <form id="comment-form">
+                        <textarea id="comment-content" rows="2" placeholder="Escribe una respuesta o comentario..." required></textarea>
+                        <button type="submit" class="btn-submit small-btn">Comentar</button>
+                    </form>
+                </div>
+                
+                <div id="comment-auth-warning" style="display:none; background:#f9f9f9; padding:1rem; border-radius:8px; border:1px solid #eee;">
+                    Debes <a id="login-link-detail" style="cursor:pointer; color:#005A9C; font-weight:bold;">iniciar sesión</a> para participar en la conversación.
+                </div>
+
+                <div class="comments-list" id="comments-list">
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <p>Copyright © 2025 Ciudades del Mundo</p>
+    </footer>
+
+    <!--Ventana emergente de inicio de sesión-->
+    <div class="modal-overlay" id="login-modal">
+        <div class="modal-content">
+            <!--Botón de cierre-->
+            <span class="modal-close" id="close-modal-btn">&times;</span>
+
+            <!--Formulario-->
+            <h2>Iniciar Sesión</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-email">Email:</label>
+                    <input type="email" id="login-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Contraseña:</label>
+                    <input type="password" id="login-password" name="password" required>
+                </div>
+                <button type="submit" class="submit-btn">Entrar</button>
+            </form>
+            <p class="modal-register-link">
+                ¿No tienes una cuenta? <a href="registro.html">Regístrate aquí.</a>
+            </p>
+        </div>
+    </div>
+
+    <!--Scripts-->
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/detalle-post.js"></script>
+</body>
+</html>
