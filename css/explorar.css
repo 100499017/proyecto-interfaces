@@ -1,4 +1,4 @@
-/* Estilos para las páginas de destinos */
+/* Estilos para la página de exploración */
 
 /* Estilos de barra de búsqueda */
 #explore-header {
@@ -11,11 +11,12 @@
 #explore-header h1 {
     margin-top: 0;
     margin-bottom: 1rem;
+    color: var(--text-main);
 }
 
 #explore-header p {
     font-size: 1.1rem;
-    color: #555;
+    color: var(--text-secondary);
 }
 
 #search-bar {
@@ -31,12 +32,14 @@
     border: 2px solid var(--color-borde);
     border-radius: 50px;
     box-sizing: border-box;
+    background-color: var(--bg-input);
+    color: var(--text-main);
 }
+
 #search-box:focus {
     outline: none;
     border-color: var(--color-primario);
 }
-/* Fin de estilos de barra de búsqueda */
 
 /* Estilos de resultado de búsqueda */
 #results-container {
@@ -44,16 +47,16 @@
     margin-bottom: 4rem;
 }
 
-.loading-message {
+.loading-message, .no-results {
     text-align: center;
     font-size: 1.2rem;
-    color: #888;
+    color: var(--text-secondary);
+    padding: 3rem;
 }
 
-/* Títulos generados por JS */
 .continent-heading {
     font-size: 2.2rem;
-    color: #333;
+    color: var(--text-main);
     margin-top: 2.5rem;
     margin-bottom: 1rem;
     border-bottom: 2px solid var(--color-acento);
@@ -62,7 +65,7 @@
 
 .country-heading {
     font-size: 1.6rem;
-    color: #555;
+    color: var(--text-secondary);
     margin-top: 2rem;
     margin-bottom: 1.5rem;
     padding-left: 1rem;
@@ -78,15 +81,17 @@
 }
 
 .city-card {
-    background-color: white;
+    background-color: var(--bg-card);
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    overflow: hidden; /* Para que la imagen no se salga del border-radius */
+    box-shadow: 0 4px 12px var(--shadow-color);
+    overflow: hidden;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid var(--color-borde);
 }
+
 .city-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 20px var(--shadow-color);
 }
 
 .city-card-image {
@@ -103,32 +108,23 @@
     font-size: 1.4rem;
     margin-top: 0;
     margin-bottom: 0.75rem;
+    color: var(--text-main);
 }
 
 .city-card-content p {
     font-size: 0.95rem;
-    color: #666;
+    color: var(--text-secondary);
     line-height: 1.6;
 }
 
-.no-results {
-    text-align: center;
-    font-size: 1.3rem;
-    color: #888;
-    padding: 3rem;
-}
-/* Fin de estilos de resultado de búsqueda */
-
-/* Responsive design */
-@media (min-width: 769px) { /* Tablet */
+@media (min-width: 600px) {
     .city-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media (min-width: 1025px) { /* Escritorio */
+@media (min-width: 900px) {
     .city-grid {
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: repeat(3, 1fr);
     }
 }
-/* Fin responsive design */

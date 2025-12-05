@@ -16,8 +16,7 @@ $(function() {
     const loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser'));
     if (!loggedInUser) {
         $bookingForm.hide();
-        $authWarning.html('Debes <a id="login-link">iniciar sesión</a> para comprar billetes.').show();
-        $('#login-link').on('click', () => { if (typeof openModal === 'function') openModal(); });
+        $authWarning.html('Debes <a class="auth-trigger">iniciar sesión</a> para comprar billetes.').show();
         return; 
     } else {
         $authWarning.hide();

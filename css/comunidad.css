@@ -1,4 +1,4 @@
-/* Estilos para los foros, perfiles, etc. */
+/* Estilos para la página de comunidad */
 
 .community-layout {
     display: grid;
@@ -16,10 +16,11 @@
 
 .feed-section h1 {
     margin-bottom: 1rem;
+    color: var(--text-main);
 }
 
 .subtitle {
-    color: #666;
+    color: var(--text-secondary);
     margin-bottom: 2rem;
 }
 
@@ -29,10 +30,10 @@
 
 /* --- Caja de Publicar --- */
 #post-box {
-    background-color: #fff;
+    background-color: var(--bg-card);
     padding: 1.5rem;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 8px var(--shadow-color);
     margin-bottom: 2rem;
     border: 1px solid var(--color-borde);
 }
@@ -41,98 +42,33 @@
     margin-top: 0;
     margin-bottom: 1rem;
     font-size: 1.1rem;
+    color: var(--text-main);
 }
 
 label[for="post-type"] {
-    font-weight: bold;
-    font-size: 0.9rem;
+    color: var(--text-main);
 }
 
-#post-type {
-    margin-bottom: 10px;
-}
-
-.form-select {
-    width: 100%;
-    padding: 0.6rem;
-    border: 1px solid var(--color-borde);
-    border-radius: 4px;
-    background-color: white;
-    font-family: inherit;
-    margin-top: 5px;
-}
-
-.feed-filters {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 1.5rem;
-    border-bottom: 2px solid var(--color-borde);
-    padding-bottom: 10px;
-}
-
-.filter-btn {
-    background: none;
-    border: none;
-    font-size: 1rem;
-    color: #777;
-    cursor: pointer;
-    padding: 5px 10px;
-    border-radius: 4px;
-    transition: all 0.2s;
-}
-
-.filter-btn:hover {
-    background-color: #f0f0f0;
-    color: #333;
-}
-
-.filter-btn.active {
-    color: white;
-    background-color: var(--color-primario);
-}
-
-.post-badge {
-    display: inline-block;
-    font-size: 0.75rem;
-    font-weight: bold;
-    padding: 4px 8px;
-    border-radius: 12px;
-    margin-bottom: 0.5rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.badge-consejo {
-    background-color: #e6f6e9;
-    color: #2f6f3f;
-    border: 1px solid #2f6f3f;
-}
-
-.badge-pregunta {
-    background-color: #fff4e5;
-    color: #895000;
-    border: 1px solid #B95000;
-}
-
-#post-box textarea {
+.form-select, #post-content {
     width: 100%;
     padding: 0.8rem;
-    border: 1px solid #ccc;
+    border: 1px solid var(--color-borde);
     border-radius: 4px;
+    background-color: var(--bg-input);
+    color: var(--text-main);
     font-family: inherit;
-    resize: vertical; /* Permite estirar verticalmente */
     box-sizing: border-box;
 }
 
 .small-btn {
-    width: auto; /* El botón no ocupa todo el ancho */
+    width: auto;
     padding: 0.5rem 1.5rem;
 }
 
 /* --- Feed de Posts --- */
 .post-card {
-    background-color: #fff;
-    border: 1px solid #e0e0e0;
+    background-color: var(--bg-card);
+    border: 1px solid var(--color-borde);
     border-radius: 8px;
     padding: 1.5rem;
     margin-bottom: 1rem;
@@ -155,19 +91,19 @@ label[for="post-type"] {
 .post-info h4 {
     margin: 0;
     font-size: 1rem;
-    color: #333;
+    color: var(--text-main);
 }
 
 .post-date {
     margin: 0;
     font-size: 0.8rem;
-    color: #888;
+    color: var(--text-secondary);
 }
 
 .post-body {
     font-size: 1rem;
     line-height: 1.5;
-    color: #444;
+    color: var(--text-main);
 }
 
 .post-footer {
@@ -178,11 +114,14 @@ label[for="post-type"] {
 
 /* --- Sidebar (Otros Viajeros) --- */
 .sidebar-section {
-    background-color: #f9f9f9;
+    background-color: var(--bg-secondary);
     padding: 1.5rem;
     border-radius: 8px;
-    height: fit-content; /* Se ajusta al contenido */
-    margin-bottom: 3rem;
+    height: fit-content;
+}
+
+.sidebar-section h3 {
+    color: var(--text-main);
 }
 
 .sidebar-user {
@@ -190,7 +129,8 @@ label[for="post-type"] {
     align-items: center;
     margin-bottom: 1rem;
     padding-bottom: 0.5rem;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--color-borde);
+    color: var(--text-main);
 }
 
 .sidebar-user:last-child {
@@ -204,14 +144,63 @@ label[for="post-type"] {
     margin-right: 10px;
 }
 
-.sidebar-user span {
-    font-weight: 600;
-    font-size: 0.9rem;
-}
-
 .no-posts {
     text-align: center;
-    color: #888;
+    color: var(--text-secondary);
     padding: 2rem;
     font-style: italic;
+}
+
+/* --- Filtros --- */
+.feed-filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--color-borde);
+    padding-bottom: 10px;
+}
+
+.filter-btn {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.filter-btn:hover {
+    background-color: var(--bg-hover);
+    color: var(--text-main);
+}
+
+.filter-btn.active {
+    color: var(--text-inverse);
+    background-color: var(--color-primario);
+}
+
+/* --- Etiquetas (Consejo, Pregunta) --- */
+.post-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 12px;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.badge-consejo {
+    background-color: var(--bg-exito);
+    color: var(--color-exito);
+    border: 1px solid var(--color-exito);
+}
+
+.badge-pregunta {
+    background-color: #FFF4E5;
+    color: #B95000;
+    border: 1px solid #B95000;
 }

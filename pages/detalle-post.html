@@ -27,15 +27,19 @@
                 <a href="reservar.html">Comprar Billetes</a>
             </nav>
 
-            <div id="lang-login">
+            <div id="header-actions">
+                <button id="theme-toggle-btn" class="icon-btn" aria-label="Alternar tema oscuro">
+                    <span id="theme-icon">🌙</span>
+                </button>
+                
                 <!--Selector de idioma-->
-                <div id="lang-selector">
-                    <button id="lang-trigger-btn" aria-haspopup="true" aria-expanded="false">
+                <div class="lang-selector">
+                    <button class="lang-trigger-btn" aria-haspopup="true" aria-expanded="false">
                         <span class="lang-text" id="current-lang-text">Español</span>
-                        <span id="lang-arrow">&triangledown;</span>
+                        <span class="lang-arrow">&triangledown;</span>
                     </button>
 
-                    <ul id="lang-menu" role="menu">
+                    <ul class="lang-menu" role="menu">
                         <li role="menuitem" data-lang="es">
                             <span class="lang-text">Español</span>
                         </li>
@@ -70,8 +74,8 @@
                     </form>
                 </div>
                 
-                <div id="comment-auth-warning" style="display:none; background:#f9f9f9; padding:1rem; border-radius:8px; border:1px solid #eee;">
-                    Debes <a id="login-link-detail" style="cursor:pointer; color:#005A9C; font-weight:bold;">iniciar sesión</a> para participar en la conversación.
+                <div id="comment-auth-warning">
+                    Debes <a class="auth-trigger">iniciar sesión</a> para participar en la conversación.
                 </div>
 
                 <div class="comments-list" id="comments-list">

@@ -28,15 +28,19 @@
                 <a href="pages/reservar.html">Comprar Billetes</a>
             </nav>
 
-            <div id="lang-login">
+            <div id="header-actions">
+                <button id="theme-toggle-btn" class="icon-btn" aria-label="Alternar tema oscuro">
+                    <span id="theme-icon">🌙</span>
+                </button>
+
                 <!--Selector de idioma-->
-                <div id="lang-selector">
-                    <button id="lang-trigger-btn" aria-haspopup="true" aria-expanded="false">
+                <div class="lang-selector">
+                    <button class="lang-trigger-btn" aria-haspopup="true" aria-expanded="false">
                         <span class="lang-text" id="current-lang-text">Español</span>
-                        <span id="lang-arrow">&triangledown;</span>
+                        <span class="lang-arrow">&triangledown;</span>
                     </button>
 
-                    <ul id="lang-menu" role="menu">
+                    <ul class="lang-menu" role="menu">
                         <li role="menuitem" data-lang="es">
                             <span class="lang-text">Español</span>
                         </li>

@@ -29,10 +29,6 @@ $(function() {
     } else {
         $postBox.hide();
         $authWarning.show();
-        
-        $('#login-link-comm').on('click', function() {
-            if(typeof openModal === 'function') openModal();
-        });
     }
 
     // --- LÓGICA DE PUBLICAR ---
@@ -103,7 +99,7 @@ $(function() {
                 ? 'Aún no hay publicaciones. ¡Sé el primero!' 
                 : `No hay ${currentFilter}s publicadas todavía.`;
             
-            $feed.html(`<p class="no-posts" style="text-align:center; padding:2rem; color:#888;">${emptyMsg}</p>`);
+            $feed.html(`<p class="no-posts">${emptyMsg}</p>`);
             return;
         }
 
@@ -130,8 +126,8 @@ $(function() {
                     <div class="post-body">
                         ${post.content}
                     </div>
-                    <div class="post-footer" style="margin-top: 1rem; border-top: 1px solid #eee; padding-top: 0.5rem;">
-                        <a href="detalle-post.html?id=${post.id}" class="btn-comment" style="text-decoration:none; color:#005A9C; font-weight:600;">
+                    <div class="post-footer">
+                        <a href="detalle-post.html?id=${post.id}" class="btn-comment">
                             💬 Ver comentarios (${post.comments ? post.comments.length : 0})
                         </a>
                     </div>
@@ -150,7 +146,7 @@ $(function() {
         const usersToShow = otherUsers.slice(0, 5);
 
         if (usersToShow.length === 0) {
-            $userList.html('<p style="font-size:0.9rem; color:#777;">No hay otros viajeros registrados.</p>');
+            $userList.html('<p>No hay otros viajeros registrados.</p>');
             return;
         }
 

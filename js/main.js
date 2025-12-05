@@ -31,6 +31,13 @@ $(function() {
         }
     })
 
+    // --- LISTENER GLOBAL PARA ABRIR LOGIN ---
+    // Esto hace que cualquier elemento con la clase 'auth-trigger' abra el modal
+    $(document).on('click', '.auth-trigger', function(e) {
+        e.preventDefault(); // Evita saltos de página
+        openModal();
+    });
+
     let pathPrefix = window.location.pathname.includes('/pages/') ? '..' : '.';
 
     const DEFAULT_AVATAR_PATH = `${pathPrefix}/images/default-avatar.jpg`;
@@ -111,9 +118,9 @@ $(function() {
 
     // --- LÓGICA DEL SELECTOR DE IDIOMA PERSONALIzADO ---
     
-    const $selector = $('#lang-selector');
-    const $trigger = $('#lang-trigger-btn');
-    const $menu = $('#lang-menu');
+    const $selector = $('.lang-selector');
+    const $trigger = $('.lang-trigger-btn');
+    const $menu = $('.lang-menu');
 
     // Abrir y cerrar el menú al hacer click en el botón
     $trigger.on('click', function(e) {
@@ -159,6 +166,47 @@ $(function() {
             $('#current-lang-text').text($initialOption.find('.lang-text').text());
         }
     }
+
+    // --- MODO OSCURO / CLARO ---
+
+    const $themeToggleBtn = $('#theme-toggle-btn');
+    const $themeIcon = $('#theme-icon');
+    const body = document.body;
+
+    // 1. Función para aplicar el tema
+    function applyTheme(isDark) {
+        if (isDark) {
+            $(body).addClass('dark-mode');
+            $themeIcon.text('☀️'); // Mostrar sol para cambiar a claro
+        } else {
+            $(body).removeClass('dark-mode');
+            $themeIcon.text('🌙'); // Mostrar luna para cambiar a oscuro
+        }
+    }
+
+    // 2. Cargar preferencia guardada (o usar preferencia del sistema)
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (savedTheme === 'dark') {
+        applyTheme(true);
+    } else if (savedTheme === 'light') {
+        applyTheme(false);
+    } else {
+        // Si no hay preferencia guardada, usamos la del sistema
+        applyTheme(systemPrefersDark);
+    }
+
+    // 3. Evento Click
+    $themeToggleBtn.on('click', function() {
+        // Alternar clase
+        $(body).toggleClass('dark-mode');
+        const isDark = $(body).hasClass('dark-mode');
+
+        // Actualizar icono y guardar
+        applyTheme(isDark);
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
 
     // --- FIN DE LÓGICA DEL SELECTOR DE IDIOMA PERSONALIZADO ---
 })

@@ -1,14 +1,14 @@
 /* Estilos para la página de reserva */
 
-/* --- Contenedor Principal --- */
+/* --- Contenedor Principal (Tarjeta) --- */
 .booking-form-container {
     max-width: 650px;
     margin: 3rem auto;
     padding: 2.5rem;
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-    border: 1px solid #f0f0f0;
+    background-color: var(--bg-card);
+    border-radius: 12px; 
+    box-shadow: 0 10px 25px var(--shadow-color);
+    border: 1px solid var(--color-borde);
 }
 
 .booking-form-container h2 {
@@ -20,7 +20,7 @@
 
 .booking-form-container p {
     text-align: center;
-    color: #666;
+    color: var(--text-secondary);
     margin-bottom: 2rem;
 }
 
@@ -32,7 +32,7 @@
 .form-group label {
     display: block;
     font-weight: 600;
-    color: #333;
+    color: var(--text-main);
     margin-bottom: 0.5rem;
     font-size: 0.95rem;
 }
@@ -40,54 +40,21 @@
 .form-group input,
 .form-group select {
     width: 100%;
-    padding: 12px 15px;
+    padding: 0.75rem;
+    border: 1px solid var(--color-borde);
+    border-radius: 4px;
+    box-sizing: border-box; 
     font-size: 1rem;
-    color: #333;
-    background-color: white;
-    border: 2px solid #e0e0e0;
-    border-radius: 8px;
-    outline: none;
-    transition: all 0.2s ease;
-    box-sizing: border-box;
-    
-    /* Quita la flecha por defecto del navegador */
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-}
-
-/* Añadimos nuestra propia flecha moderna a los Selects */
-.form-group select {
-    /* Flecha en formato SVG */
-    background-image: url("../images/select-arrow.svg");
-    background-repeat: no-repeat;
-    background-position: right 15px top 50%;
-    background-size: 12px auto;
-    cursor: pointer;
-}
-
-/* Estado Focus (al hacer click) */
-.form-group input:focus,
-.form-group select:focus {
-    border-color: #005A9C;
-    box-shadow: 0 0 0 3px rgba(0, 90, 156, 0.1);
-}
-
-/* Estado disabled del selector de destino */
-.form-group select:disabled {
-    background-color: #f9f9f9;
-    color: #999;
-    cursor: not-allowed;
-    border-color: #eee;
-    background-image: none; /* Quita la flecha si está desactivado */
+    background-color: var(--bg-input);
+    color: var(--text-main);
 }
 
 /* --- Sección de Mascotas --- */
 .pets-section {
-    background-color: #f8fbfd; /* Fondo muy suave para diferenciarlo */
+    background-color: var(--bg-secondary);
     padding: 1.5rem;
     border-radius: 8px;
-    border: 1px dashed #ccddee;
+    border: 1px dashed var(--color-borde);
 }
 
 .pet-row {
@@ -95,14 +62,13 @@
     gap: 10px;
     margin-bottom: 10px;
     align-items: center;
-    animation: fadeIn 0.3s ease; /* Pequeña animación al aparecer */
+    animation: fadeIn 0.3s ease;
 }
 
 .pet-size {
-    flex: 1; /* Ocupa todo el espacio disponible */
+    flex: 1; 
 }
 
-/* Botón "Añadir Mascota" */
 .btn-secondary {
     background-color: transparent;
     color: var(--color-primario);
@@ -117,35 +83,33 @@
 }
 
 .btn-secondary:hover {
-    background-color: #e6f0fa;
+    background-color: var(--bg-hover);
 }
 
-/* Botón de eliminar mascota (X) */
+/* Botón eliminar mascota (X) */
 .btn-remove-pet {
     background-color: var(--bg-error);
     color: var(--color-error);
     border: 1px solid var(--color-error);
-    border-radius: 4px;
-    padding: 0.5rem;
-    cursor: pointer;
     font-weight: bold;
     width: 36px;
     height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.2s ease;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
 }
 
 .btn-remove-pet:hover {
     background-color: var(--color-error);
-    color: white;
+    color: var(--text-inverse);
 }
 
 /* --- Precio y Botón Final --- */
-
 .price-preview {
-    display: none; /* Oculto por defecto */
+    display: none; 
     margin: 1rem 0;
     font-weight: bold;
     font-size: 1.2rem;
@@ -159,21 +123,19 @@
     font-size: 1.1rem;
     font-weight: bold;
     margin-top: 1rem;
-    background-color: var(--color-primario);
-    color: white;
-    border: none;
+}
+
+.auth-warning {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--text-main);
+    background-color: var(--bg-secondary);
+    padding: 2rem;
     border-radius: 8px;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 90, 156, 0.2);
+    border: 1px solid var(--color-borde);
 }
 
-.submit-btn:hover {
-    background-color: var(--color-primario);
-    transform: translateY(-2px); /* Efecto de elevación */
-}
-
-/* Animación (usada en .pet-row) */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
+    from { opacity: 0; transform: translateY(-5px); }
     to { opacity: 1; transform: translateY(0); }
 }

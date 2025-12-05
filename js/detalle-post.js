@@ -40,7 +40,7 @@ $(function() {
     const badgeText = postType === 'pregunta' ? '❓ Pregunta' : '💡 Consejo';
 
     const postHtml = `
-        <div class="post-card" style="border: 2px solid #e0e0e0;">
+        <div class="post-card">
             <span class="post-badge ${badgeClass}">${badgeText}</span>
             <div class="post-header">
                 <img src="${avatarSrc}" alt="${currentPost.userName}" class="post-avatar">
@@ -49,7 +49,7 @@ $(function() {
                     <p class="post-date">${currentPost.date}</p>
                 </div>
             </div>
-            <div class="post-body" style="font-size: 1.1rem;">
+            <div class="post-body">
                 ${currentPost.content}
             </div>
         </div>
@@ -69,7 +69,7 @@ $(function() {
         const comments = currentPost.comments || [];
 
         if (comments.length === 0) {
-            $commentsList.html('<p style="color:#777; font-style:italic;">No hay comentarios. Sé el primero en responder.</p>');
+            $commentsList.html('<p>No hay comentarios. Sé el primero en responder.</p>');
             return;
         }
 
@@ -105,10 +105,6 @@ $(function() {
     } else {
         $commentFormBox.hide();
         $authWarning.show();
-        
-        $('#login-link-detail').on('click', function() {
-             if(typeof openModal === 'function') openModal();
-        });
     }
 
     // C. Enviar Comentario

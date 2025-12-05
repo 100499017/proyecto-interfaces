@@ -1,25 +1,27 @@
-/* Estilos específicos para registro.html */
+/* Estilos especÃ­ficos para registro.html */
 
 .form-container {
     max-width: 500px;
     margin: 3rem auto;
     padding: 2.5rem;
 
-    background-color: white;
+    background-color: var(--bg-card);
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 12px var(--shadow-color);
+    border: 1px solid var(--color-borde);
 }
 
 .form-container h2 {
     text-align: center;
     margin-top: 0;
     margin-bottom: 0.5rem;
+    color: var(--text-main);
 }
 
 .form-container p {
     text-align: center;
     margin-bottom: 2rem;
-    color: #555;
+    color: var(--text-secondary);
     font-size: 0.95rem;
 }
 
@@ -27,13 +29,13 @@
     text-align: center;
     margin-top: 1.5rem;
     font-size: 0.9rem;
+    color: var(--text-main);
 }
 
 .error-text {
     display: none;
     display: block;
     color: var(--color-error);
-    
 }
 
 @media (max-width: 600px) {
