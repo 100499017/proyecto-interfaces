@@ -31,10 +31,7 @@ $(function() {
         }
     })
 
-    let pathPrefix = '.'; // Asumimos que está en index.html
-    if (window.location.pathname.includes('/pages/')) {
-        pathPrefix = '..'; // Si estamos en una subpágina, cambiamos el prefijo
-    }
+    let pathPrefix = window.location.pathname.includes('/pages/') ? '..' : '.';
 
     const DEFAULT_AVATAR_PATH = `${pathPrefix}/images/default-avatar.jpg`;
     const PROFILE_PAGE_URL = `${pathPrefix}/pages/perfil.html`;

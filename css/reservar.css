@@ -1,50 +1,179 @@
 /* Estilos para la página de reserva */
 
-#booking-form-container {
-    max-width: 600px;
+/* --- Contenedor Principal --- */
+.booking-form-container {
+    max-width: 650px;
     margin: 3rem auto;
     padding: 2.5rem;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f0f0f0;
 }
 
-#booking-form-container h2 {
+.booking-form-container h2 {
     text-align: center;
+    color: var(--color-primario);
     margin-top: 0;
     margin-bottom: 0.5rem;
 }
 
-#booking-form-container p {
+.booking-form-container p {
     text-align: center;
+    color: #666;
     margin-bottom: 2rem;
-    color: #555;
+}
+
+/* --- Estilos del formulario de reserva --- */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
     font-size: 0.95rem;
 }
 
-#auth-warning {
-    text-align: center;
-    font-size: 1.1rem;
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 1rem;
     color: #333;
-    background-color: #f9f9f9;
-    padding: 2rem;
+    background-color: white;
+    border: 2px solid #e0e0e0;
     border-radius: 8px;
-    border: 1px solid var(--color-borde);
+    outline: none;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+    
+    /* Quita la flecha por defecto del navegador */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
-#auth-warning a {
-    font-weight: bold;
-    color: var(--color-primario);
+/* Añadimos nuestra propia flecha moderna a los Selects */
+.form-group select {
+    /* Flecha en formato SVG */
+    background-image: url("../images/select-arrow.svg");
+    background-repeat: no-repeat;
+    background-position: right 15px top 50%;
+    background-size: 12px auto;
     cursor: pointer;
-    text-decoration: underline;
 }
 
-#success-message {
-    display: none;
-    color: var(--color-exito);
-    border: 1px solid #2f6f3f;
+/* Estado Focus (al hacer click) */
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #005A9C;
+    box-shadow: 0 0 0 3px rgba(0, 90, 156, 0.1);
+}
+
+/* Estado disabled del selector de destino */
+.form-group select:disabled {
+    background-color: #f9f9f9;
+    color: #999;
+    cursor: not-allowed;
+    border-color: #eee;
+    background-image: none; /* Quita la flecha si está desactivado */
+}
+
+/* --- Sección de Mascotas --- */
+.pets-section {
+    background-color: #f8fbfd; /* Fondo muy suave para diferenciarlo */
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px dashed #ccddee;
+}
+
+.pet-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+    animation: fadeIn 0.3s ease; /* Pequeña animación al aparecer */
+}
+
+.pet-size {
+    flex: 1; /* Ocupa todo el espacio disponible */
+}
+
+/* Botón "Añadir Mascota" */
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-primario);
+    border: 2px dashed var(--color-primario);
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.btn-secondary:hover {
+    background-color: #e6f0fa;
+}
+
+/* Botón de eliminar mascota (X) */
+.btn-remove-pet {
+    background-color: var(--bg-error);
+    color: var(--color-error);
+    border: 1px solid var(--color-error);
     border-radius: 4px;
+    padding: 0.5rem;
+    cursor: pointer;
+    font-weight: bold;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.btn-remove-pet:hover {
+    background-color: var(--color-error);
+    color: white;
+}
+
+/* --- Precio y Botón Final --- */
+
+.price-preview {
+    display: none; /* Oculto por defecto */
+    margin: 1rem 0;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-align: right;
+    color: var(--color-primario);
+}
+
+.submit-btn {
+    width: 100%;
     padding: 1rem;
-    text-align: center;
-    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    background-color: var(--color-primario);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 90, 156, 0.2);
+}
+
+.submit-btn:hover {
+    background-color: var(--color-primario);
+    transform: translateY(-2px); /* Efecto de elevación */
+}
+
+/* Animación (usada en .pet-row) */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }

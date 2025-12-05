@@ -1,13 +1,13 @@
-<!--Página para "Explorar Destinos"-->
+<!--Página de pago de billetes-->
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explorar | Ciudades del Mundo</title>
+    <title>Procedimiento de Pago | Ciudades del Mundo</title>
     <link rel="icon" type="image/png" href="../images/favicon.png">
     <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/explorar.css">
+    <link rel="stylesheet" href="../css/pago.css">
 </head>
 <body>
     <header>
@@ -56,17 +56,54 @@
     </header>
     <main>
         <div class="main-container">
-            <div id="explore-header">
-                <h1>Explora Destinos</h1>
-                <p>Encuentra tu próxima aventura. Busca por ciudad, país o continente.</p>
-
-                <div id="search-bar">
-                    <input type="search" id="search-box" placeholder="Buscar destino...">
+            <div class="payment-layout">
+                <!--Contenedor con resumen del billete (origen, destino, número de pasajeros, etc.)-->
+                <div class="summary-box">
+                    <h2>Resumen del Viaje</h2>
+                    <div id="summary-details">
+                        </div>
+                    <div class="total-display">
+                        Total a pagar: <span id="final-amount">0</span> <span id="currency-symbol">€</span>
+                    </div>
+                    
+                    <div class="currency-toggle">
+                        <label>Moneda de pago:</label>
+                        <select id="currency-select">
+                            <option value="EUR" selected>Euros (€)</option>
+                            <option value="USD">Dólares ($)</option>
+                        </select>
+                        <p id="rate-info"></p>
+                    </div>
                 </div>
-            </div>
 
-            <div id="results-container">
-                <p class="loading-message">Cargando destinos...</p>
+                <!--Contenedor con datos de tarjeta-->
+                <div class="card-box">
+                    <h3>Datos de Pago</h3>
+                    <form id="payment-form">
+                        <div class="form-group">
+                            <label>Titular de la tarjeta</label>
+                            <input type="text" placeholder="Como aparece en la tarjeta" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Número de tarjeta</label>
+                            <input type="text" placeholder="0000 0000 0000 0000" maxlength="19" required>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group half-width">
+                                <label>Caducidad</label>
+                                <input type="text" placeholder="MM/AA" maxlength="5" required>
+                            </div>
+                            <div class="form-group half-width">
+                                <label>CVV</label>
+                                <input type="text" placeholder="123" maxlength="3" required>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn btn-pay">Pagar y Confirmar</button>
+                    </form>
+                </div>
+
             </div>
         </div>
     </main>
@@ -102,6 +139,6 @@
     <!--Scripts-->
     <script src="../js/jquery-3.7.1.min.js"></script>
     <script src="../js/main.js"></script>
-    <script src="../js/explorar.js"></script>
+    <script src="../js/pago.js"></script>
 </body>
 </html>

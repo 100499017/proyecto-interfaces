@@ -17,8 +17,8 @@ $(function() {
     let currentFilter = 'all'; 
 
     // Rutas dinámicas para imágenes
-    let pathPrefix = window.location.pathname.includes('/pages/') ? '.' : '..';
-    const DEFAULT_AVATAR = `${pathPrefix}/assets/images/default-avatar.png`;
+    let pathPrefix = window.location.pathname.includes('/pages/') ? '..' : '.';
+    const DEFAULT_AVATAR_PATH = `${pathPrefix}/images/default-avatar.jpg`;
 
     // --- COMPROBAR SESIÓN ---
     const loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser'));
@@ -57,7 +57,7 @@ $(function() {
             userEmail: currentUser.email,
             userName: currentUser.name,
             // Guardamos avatar o el por defecto
-            userAvatar: currentUser.avatar || DEFAULT_AVATAR,
+            userAvatar: currentUser.avatar || DEFAULT_AVATAR_PATH,
             date: new Date().toLocaleDateString(),
             content: text,
             type: type, // Guardamos el tipo
@@ -109,7 +109,7 @@ $(function() {
 
         // Generar HTML para cada post
         posts.forEach(post => {
-            const avatarSrc = post.userAvatar || DEFAULT_AVATAR;
+            const avatarSrc = post.userAvatar || DEFAULT_AVATAR_PATH;
             
             // Determinar etiqueta (badge) y estilo
             const postType = post.type || 'consejo'; // Por defecto consejo si es antiguo
@@ -155,7 +155,7 @@ $(function() {
         }
 
         usersToShow.forEach(user => {
-            const avatarSrc = user.avatar || DEFAULT_AVATAR;
+            const avatarSrc = user.avatar || DEFAULT_AVATAR_PATH;
             const html = `
                 <div class="sidebar-user">
                     <img src="${avatarSrc}" alt="${user.name}">

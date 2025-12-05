@@ -1,0 +1,184 @@
+/* Estilos de la página de pago */
+
+/* --- Contenedor principal (contiene resumen y datos de tarjeta) --- */
+.payment-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 2rem;
+    margin: 2rem auto;
+    align-items: start;
+}
+
+/* En móvil una sola columna */
+@media (max-width: 768px) {
+    .payment-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Cajas de Resumen y Tarjeta --- */
+.summary-box, .card-box {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    border: 1px solid #f0f0f0;
+}
+
+h2, h3 {
+    margin-top: 0;
+    color: #333;
+    border-bottom: 2px solid #f4f4f4;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* --- Estilos del Resumen --- */
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #f4f4f4;
+    font-size: 0.95rem;
+}
+
+.summary-item span {
+    color: #666;
+}
+
+.summary-item strong {
+    color: #333;
+}
+
+.total-display {
+    font-size: 1.4rem;
+    font-weight: 800;
+    text-align: right;
+    margin: 1.5rem 0;
+    color: var(--color-primario);
+    letter-spacing: -0.5px;
+}
+
+/* --- Selector de Divisa --- */
+.currency-toggle {
+    background: #f0f7ff;
+    padding: 1.2rem;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    border: 1px solid #dbeafe;
+}
+
+.currency-toggle label {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: var(--color-primario);
+    margin-bottom: 5px;
+}
+
+#currency-select {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-weight: bold;
+    width: auto;
+    min-width: 120px;
+    /* Flecha en formato SVG */
+    background-image: url("../images/select-arrow.svg");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 10px;
+    padding-right: 30px;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+#rate-info {
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* --- Formulario de pago (Datos de Tarjeta) --- */
+.card-box form .form-group {
+    margin-bottom: 1.2rem;
+}
+
+.card-box label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #444;
+    font-size: 0.9rem;
+}
+
+.card-box input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+    /* Simular input de tarjeta */
+    background-color: #fafafa;
+}
+
+.card-box input:focus {
+    background-color: #fff;
+    border-color: #005A9C;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 90, 156, 0.1);
+}
+
+/* Botón de pagar */
+.submit-btn {
+    width: 100%;
+    padding: 1.2rem;
+    font-size: 1.1rem;
+    background-color: var(--color-primario);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 90, 156, 0.3);
+    transition: transform 0.2s;
+    margin-top: 1rem;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 90, 156, 0.4);
+}
+
+.submit-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-pay {
+    margin-top: 1.5rem;
+    width: 100%;
+    font-size: 1.1rem;
+}
+
+/* ---  Formulario de tarjeta --- */
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+/* Ajuste Responsive para la fila de tarjeta */
+@media (max-width: 480px) {
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+}

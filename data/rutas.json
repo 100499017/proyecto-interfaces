@@ -1,0 +1,25 @@
+[
+  {
+    "origen": "Madrid",
+    "destinos": [
+      { "ciudad": "Tokio", "precio": 850 },
+      { "ciudad": "Nueva York", "precio": 450 },
+      { "ciudad": "París", "precio": 120 }
+    ]
+  },
+  {
+    "origen": "Barcelona",
+    "destinos": [
+      { "ciudad": "Roma", "precio": 90 },
+      { "ciudad": "Londres", "precio": 110 },
+      { "ciudad": "Buenos Aires", "precio": 900 }
+    ]
+  },
+  {
+    "origen": "París",
+    "destinos": [
+      { "ciudad": "Madrid", "precio": 120 },
+      { "ciudad": "Berlín", "precio": 150 }
+    ]
+  }
+]

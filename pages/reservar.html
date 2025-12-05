@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reservar | Ciudades del Mundo</title>
+    <title>Comprar Billetes | Ciudades del Mundo</title>
     <link rel="icon" type="image/png" href="../images/favicon.png">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/reservar.css">
@@ -25,8 +25,7 @@
                 <a href="../index.html">Inicio</a>
                 <a href="explorar.html">Explorar</a>
                 <a href="comunidad.html">Comunidad</a>
-                <a href="reservar.html">Reservar</a>
-                <a href="otros-rincones.html">Otros Rincones</a>
+                <a href="reservar.html">Comprar Billetes</a>
             </nav>
 
             <div id="lang-login">
@@ -57,23 +56,23 @@
     </header>
     <main>
         <div class="main-container">
-            <div id="booking-form-container">
-                <h2>Reserva tu Próximo Viaje</h2>
-                <p>Completa los datos para tu reserva. Los billetes aparecerán en tu perfil.</p>
-
-                <div id="success-message">
-                    ¡Reserva completada con éxito!
-                </div>
+            <div class="booking-form-container">
+                <h2>Comprar Billetes</h2>
+                <p>Selecciona tu destino. El pago se realizará en el siguiente paso.</p>
 
                 <form id="booking-form">
                     <div class="form-group">
                         <label for="origen">Origen:</label>
-                        <input type="text" id="origen" name="origen" placeholder="Ej: Madrid, España" required>
+                        <select id="origen" name="origen" required>
+                            <option value="">Selecciona origen...</option>
+                        </select>
                     </div>
 
                     <div class="form-group">
                         <label for="destino">Destino:</label>
-                        <input type="text" id="destino" name="destino" placeholder="Ej: Tokio, Japón" required>
+                        <select id="destino" name="destino" disabled required>
+                            <option value="">Selecciona origen primero...</option>
+                        </select>
                     </div>
 
                     <div class="form-group">
@@ -86,10 +85,20 @@
                         <input type="number" id="pasajeros" name="pasajeros" min="1" value="1" required>
                     </div>
 
-                    <button type="submit" class="submit-btn">Confirmar Reserva</button>
+                    <div class="form-group pets-section">
+                        <label>Mascotas:</label>
+                        <div id="pets-list"></div>
+                        <button type="button" id="add-pet-btn" class="btn-secondary">+ Añadir Mascota</button>
+                    </div>
+
+                    <div class="price-preview" id="price-preview">
+                        Total estimado: <span id="total-price">0</span>€
+                    </div>
+
+                    <button type="submit" class="submit-btn">Proceder al Pago</button>
                 </form>
 
-                <div id="auth-warning"></div>
+                <div class="auth-warning" id="auth-warning"></div>
             </div>
         </div>
     </main>

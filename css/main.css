@@ -9,8 +9,8 @@
     --color-texto-suave: #6C6C6C;
 
     /* Colores de identidad */
-    --color-primario: #0D3B66;
-    --color-primario-fuerte: #072846;
+    --color-primario: #005A9C;
+    --color-primario-fuerte: #0D3B66;
     --color-primario-suave: #AEC9DF;
     
     --color-acento: #F28C38;
@@ -34,7 +34,7 @@
 body{
     font-size: 100%;
     list-style-type: none;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 /* Fin Reset CSS */
 
@@ -179,7 +179,7 @@ header {
 .profile-link-container {
     display: flex;
     align-items: center;
-    background-color: var(--color-primario);
+    background-color: var(--color-primario-fuerte);
     padding: 6px 12px 6px 6px;
     border-radius: 50px;
     transition: background-color 0.2s;
