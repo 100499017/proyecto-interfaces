@@ -2,6 +2,9 @@
 
 // Espera a que todo el HTML esté cargado
 $(function() {
+
+    let pathPrefix = window.location.pathname.includes('/pages/') ? '..' : '.';
+
     // --- LÓGICA DE INICIO DE SESIÓN ---
 
     // Seleccionamos los elementos del modal
@@ -37,8 +40,6 @@ $(function() {
         e.preventDefault(); // Evita saltos de página
         openModal();
     });
-
-    let pathPrefix = window.location.pathname.includes('/pages/') ? '..' : '.';
 
     const DEFAULT_AVATAR_PATH = `${pathPrefix}/images/default-avatar.jpg`;
     const PROFILE_PAGE_URL = `${pathPrefix}/pages/perfil.html`;
@@ -169,42 +170,48 @@ $(function() {
 
     // --- MODO OSCURO / CLARO ---
 
+    // Nombres de archivos SVG de sol y luna
+    const ICON_SUN = `${pathPrefix}/images/sun.svg`;
+    const ICON_MOON = `${pathPrefix}/images/moon.svg`;
+
     const $themeToggleBtn = $('#theme-toggle-btn');
-    const $themeIcon = $('#theme-icon');
     const body = document.body;
 
-    // 1. Función para aplicar el tema
-    function applyTheme(isDark) {
-        if (isDark) {
-            $(body).addClass('dark-mode');
-            $themeIcon.text('☀️'); // Mostrar sol para cambiar a claro
-        } else {
-            $(body).removeClass('dark-mode');
-            $themeIcon.text('🌙'); // Mostrar luna para cambiar a oscuro
-        }
+    // Función para cambiar el icono
+    function updateThemeIcon(isDark) {
+        // Si es oscuro, mostramos el sol
+        // Si es claro, mostramos la luna
+        const iconSrc = isDark ? ICON_SUN : ICON_MOON;
+        const altText = isDark ? "Cambiar a modo claro" : "Cambiar a modo oscuro";
+
+        $themeToggleBtn.html(`<img src="${iconSrc}" alt="${altText}">`);
     }
 
-    // 2. Cargar preferencia guardada (o usar preferencia del sistema)
+    // Aplicar tema guardado al inicio
     const savedTheme = localStorage.getItem('theme');
     const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-    if (savedTheme === 'dark') {
-        applyTheme(true);
-    } else if (savedTheme === 'light') {
-        applyTheme(false);
+    let isDarkMode = false;
+    if (savedTheme == 'dark' || (!savedTheme && systemPrefersDark)) {
+        $(body).addClass('dark-mode');
+        isDarkMode = true;
     } else {
-        // Si no hay preferencia guardada, usamos la del sistema
-        applyTheme(systemPrefersDark);
+        isDarkMode = false;
     }
 
-    // 3. Evento Click
+    // Actualizamos el icono inicial
+    updateThemeIcon(isDarkMode);
+
+    // Evento Click para cambiar tema
     $themeToggleBtn.on('click', function() {
         // Alternar clase
         $(body).toggleClass('dark-mode');
-        const isDark = $(body).hasClass('dark-mode');
+        const isDarkNow = $(body).hasClass('dark-mode');
 
-        // Actualizar icono y guardar
-        applyTheme(isDark);
+        // Actualizar icono
+        updateThemeIcon(isDarkNow);
+
+        // Guardar preferencia
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
     });
 
