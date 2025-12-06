@@ -81,6 +81,7 @@
 }
 
 .city-card {
+    position: relative;
     background-color: var(--bg-card);
     border-radius: 8px;
     box-shadow: 0 4px 12px var(--shadow-color);
@@ -115,6 +116,40 @@
     font-size: 0.95rem;
     color: var(--text-secondary);
     line-height: 1.6;
+}
+
+/* Botón de Favorito (Contenedor) */
+.fav-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.9); /* Un poco más opaco para que se vea bien */
+    border: none;
+    width: 40px; /* Un poco más grande */
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 10;
+    padding: 0; /* Importante para que el SVG no se desplace */
+}
+
+.fav-btn:hover {
+    transform: scale(1.1);
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* Estilo para la imagen SVG dentro del botón */
+.fav-btn img {
+    width: 22px;  /* Ajusta el tamaño del icono */
+    height: 22px;
+    display: block;
+    pointer-events: none; /* Evita que el clic lo detecte la imagen en vez del botón */
 }
 
 @media (min-width: 600px) {

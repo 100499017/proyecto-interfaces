@@ -8,6 +8,20 @@ $(function() {
     // Variable global para guardar los datos del JSON
     let allDestinations = [];
 
+    // DEFINIR RUTAS DE ICONOS
+    const ICON_EMPTY = '../images/white-heart.svg';
+    const ICON_FILLED = '../images/red-heart.svg';
+
+    // FUNCIÓN PARA OBTENER LUGARES FAVORITOS DEL USUARIO ---
+    function getUserFavorites() {
+        const loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser'));
+        if (!loggedInUser) return []; // Si no hay usuario, no hay favoritos
+
+        const allFavs = JSON.parse(localStorage.getItem('favorites')) || [];
+        // Devolvemos solo los de este usuario
+        return allFavs.filter(f => f.userEmail === loggedInUser.email);
+    }
+
     // Función para mostrar los destinos
     // Esta función recibe un array de continentes y lo convierte en HTML
     function renderDestinations(continents) {
@@ -17,6 +31,8 @@ $(function() {
             $container.html('<p class="no-results">No se encontraron destinos que coincidan con tu búsqueda.</p>');
             return;
         }
+
+        const userFavs = getUserFavorites(); // Obtenemos la lista actual de favs
 
         // Bucle por cada continente
         continents.forEach(continent => {
@@ -33,9 +49,22 @@ $(function() {
 
                 // Bucle por cada ciudad en el país
                 country.cities.forEach(city => {
+                    const isFav = userFavs.some(f => f.cityName === city.name);
+                    
+                    // ELEGIR QUÉ IMAGEN MOSTRAR
+                    const iconSrc = isFav ? ICON_FILLED : ICON_EMPTY;
+
                     // Crea la tarjeta de la ciudad
                     const $cityCard = $(`
                         <div class="city-card">
+                            <button class="fav-btn" 
+                                    data-name="${city.name}"
+                                    data-country="${country.name}"
+                                    data-img="${city.image.url}"
+                                    data-desc="${city.description}"
+                                    title="${isFav ? 'Quitar de favoritos' : 'Añadir a favoritos'}">
+                                <img src="${iconSrc}" alt="Favorito">
+                            </button>
                             <img src="${city.image.url}" alt="${city.image.alt}" class="city-card-image">
                             <div class="city-card-content">
                                 <h4>${city.name}</h4>
@@ -52,6 +81,50 @@ $(function() {
             });
         });
     }
+
+    // --- EVENTO CLIC EN CORAZÓN ---
+    $(document).on('click', '.fav-btn', function(e) {
+        e.preventDefault();
+        
+        const loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser'));
+        if (!loggedInUser) {
+            alert('Debes iniciar sesión para guardar favoritos.');
+            return;
+        }
+
+        const $btn = $(this);
+        const $icon = $btn.find('img'); // Seleccionamos la imagen dentro del botón
+        const cityName = $btn.data('name');
+        
+        const cityData = {
+            cityName: cityName,
+            countryName: $btn.data('country'),
+            image: $btn.data('img'),
+            description: $btn.data('desc'),
+            userEmail: loggedInUser.email
+        };
+
+        let allFavs = JSON.parse(localStorage.getItem('favorites')) || [];
+        const existingIndex = allFavs.findIndex(f => f.cityName === cityName && f.userEmail === loggedInUser.email);
+
+        if (existingIndex > -1) {
+            // YA EXISTE -> BORRAR -> PONER CORAZÓN BLANCO
+            allFavs.splice(existingIndex, 1);
+            $icon.attr('src', ICON_EMPTY); // Cambiamos el SRC
+            $btn.attr('title', 'Añadir a favoritos');
+        } else {
+            // NO EXISTE -> AÑADIR -> PONER CORAZÓN ROJO
+            allFavs.push(cityData);
+            $icon.attr('src', ICON_FILLED); // Cambiamos el SRC
+            $btn.attr('title', 'Quitar de favoritos');
+            
+            // Efecto visual
+            $btn.css('transform', 'scale(1.3)');
+            setTimeout(() => $btn.css('transform', 'scale(1)'), 200);
+        }
+
+        localStorage.setItem('favorites', JSON.stringify(allFavs));
+    });
 
     // Función de búsqueda/filtrado
     function filterDestinations() {

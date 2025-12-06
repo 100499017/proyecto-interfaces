@@ -13,9 +13,8 @@ $(function() {
         return; 
     }
 
-    // RUTAS DE IMÁGENES
-    const pathPrefix = '..'; 
-    const DEFAULT_AVATAR = `${pathPrefix}/assets/images/default-avatar.png`;
+    // RUTAS DE IMÁGENES 
+    const DEFAULT_AVATAR = `../images/default-avatar.jpg`;
 
     // CARGAR INFO DEL USUARIO (Sidebar y Pestaña de Información Personal)
     const avatarSrc = loggedInUser.avatar || DEFAULT_AVATAR;
@@ -44,6 +43,7 @@ $(function() {
         // Si es bookings o posts, recargar los datos (por si hubo cambios)
         if (tabId === 'bookings') renderBookings();
         if (tabId === 'posts') renderMyPosts();
+        if (tabId === 'favorites') renderFavorites();
     });
 
 
@@ -142,6 +142,57 @@ $(function() {
         renderMyPosts();
     });
 
+    // DEFINIR RUTA
+    const ICON_BROKEN = '../images/broken-heart.svg';
+
+    // 9. RENDERIZAR FAVORITOS
+    function renderFavorites() {
+        const $list = $('#favorites-list');
+        const allFavs = JSON.parse(localStorage.getItem('favorites')) || [];
+        
+        // Filtrar los míos
+        const myFavs = allFavs.filter(f => f.userEmail === loggedInUser.email);
+
+        $list.empty();
+
+        if (myFavs.length === 0) {
+            $list.html('<div class="empty-state">No has añadido ningún destino a favoritos.</div>');
+            return;
+        }
+
+        myFavs.forEach(city => {
+            // Reusamos el estilo de tarjeta de explorar.css
+            // Nota: Quitamos el botón de corazón aquí, o ponemos uno de "eliminar"
+            const html = `
+                <div class="city-card">
+                    <img src="${city.image}" alt="${city.cityName}" class="city-card-image">
+                    <div class="city-card-content">
+                        <h4>${city.cityName}</h4>
+                        <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:0.5rem;">${city.countryName}</p>
+                        <p>${city.description}</p>
+                        
+                        <button class="btn-remove-fav" data-name="${city.cityName}" title="Eliminar de favoritos">
+                            <img src="${ICON_BROKEN}" alt="Eliminar" style="width:20px; height:20px; vertical-align:middle; margin-right:5px;">
+                            Quitar
+                        </button>
+                    </div>
+                </div>
+            `;
+            $list.append(html);
+        });
+    }
+
+    // 10. LÓGICA PARA QUITAR FAVORITO DESDE EL PERFIL
+    $(document).on('click', '.btn-remove-fav', function() {
+        const cityName = $(this).data('name');
+        let allFavs = JSON.parse(localStorage.getItem('favorites')) || [];
+        
+        // Filtrar para quitar el elemento
+        const updatedFavs = allFavs.filter(f => !(f.cityName === cityName && f.userEmail === loggedInUser.email));
+        
+        localStorage.setItem('favorites', JSON.stringify(updatedFavs));
+        renderFavorites(); // Recargar la lista
+    });
 
     // CERRAR SESIÓN
     $('#logout-btn').on('click', function() {
