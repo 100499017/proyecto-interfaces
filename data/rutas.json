@@ -2,24 +2,135 @@
   {
     "origen": "Madrid",
     "destinos": [
-      { "ciudad": "Tokio", "precio": 850 },
-      { "ciudad": "Nueva York", "precio": 450 },
-      { "ciudad": "París", "precio": 120 }
+      { "ciudad": "Barcelona", "precio": 65 },
+      { "ciudad": "París", "precio": 110 },
+      { "ciudad": "Londres", "precio": 140 },
+      { "ciudad": "Roma", "precio": 130 },
+      { "ciudad": "Nueva York", "precio": 550 },
+      { "ciudad": "Tokio", "precio": 950 },
+      { "ciudad": "Buenos Aires", "precio": 890 },
+      { "ciudad": "Ámsterdam", "precio": 160 },
+      { "ciudad": "Cancún", "precio": 750 }
     ]
   },
   {
     "origen": "Barcelona",
     "destinos": [
-      { "ciudad": "Roma", "precio": 90 },
-      { "ciudad": "Londres", "precio": 110 },
-      { "ciudad": "Buenos Aires", "precio": 900 }
+      { "ciudad": "Madrid", "precio": 65 },
+      { "ciudad": "Roma", "precio": 85 },
+      { "ciudad": "París", "precio": 95 },
+      { "ciudad": "Berlín", "precio": 120 },
+      { "ciudad": "Londres", "precio": 115 },
+      { "ciudad": "Ámsterdam", "precio": 140 },
+      { "ciudad": "Dubái", "precio": 600 }
+    ]
+  },
+  {
+    "origen": "Londres",
+    "destinos": [
+      { "ciudad": "Nueva York", "precio": 620 },
+      { "ciudad": "Dubái", "precio": 580 },
+      { "ciudad": "Hong Kong", "precio": 850 },
+      { "ciudad": "Madrid", "precio": 130 },
+      { "ciudad": "París", "precio": 90 },
+      { "ciudad": "Edimburgo", "precio": 70 },
+      { "ciudad": "Los Ángeles", "precio": 700 }
     ]
   },
   {
     "origen": "París",
     "destinos": [
-      { "ciudad": "Madrid", "precio": 120 },
-      { "ciudad": "Berlín", "precio": 150 }
+      { "ciudad": "Madrid", "precio": 110 },
+      { "ciudad": "Londres", "precio": 90 },
+      { "ciudad": "Berlín", "precio": 130 },
+      { "ciudad": "Tokio", "precio": 980 },
+      { "ciudad": "Río de Janeiro", "precio": 920 },
+      { "ciudad": "Roma", "precio": 100 },
+      { "ciudad": "Nueva York", "precio": 580 }
+    ]
+  },
+  {
+    "origen": "Nueva York",
+    "destinos": [
+      { "ciudad": "Londres", "precio": 600 },
+      { "ciudad": "París", "precio": 590 },
+      { "ciudad": "Madrid", "precio": 560 },
+      { "ciudad": "Los Ángeles", "precio": 350 },
+      { "ciudad": "México D.F.", "precio": 400 },
+      { "ciudad": "Tokio", "precio": 1100 },
+      { "ciudad": "Bogotá", "precio": 450 }
+    ]
+  },
+  {
+    "origen": "Berlín",
+    "destinos": [
+      { "ciudad": "Múnich", "precio": 80 },
+      { "ciudad": "París", "precio": 125 },
+      { "ciudad": "Praga", "precio": 60 },
+      { "ciudad": "Londres", "precio": 110 },
+      { "ciudad": "Barcelona", "precio": 135 },
+      { "ciudad": "Viena", "precio": 95 }
+    ]
+  },
+  {
+    "origen": "Roma",
+    "destinos": [
+      { "ciudad": "Milán", "precio": 75 },
+      { "ciudad": "Barcelona", "precio": 90 },
+      { "ciudad": "Atenas", "precio": 120 },
+      { "ciudad": "El Cairo", "precio": 350 },
+      { "ciudad": "Madrid", "precio": 125 },
+      { "ciudad": "París", "precio": 105 }
+    ]
+  },
+  {
+    "origen": "Tokio",
+    "destinos": [
+      { "ciudad": "Kioto", "precio": 150 },
+      { "ciudad": "Seúl", "precio": 250 },
+      { "ciudad": "París", "precio": 990 },
+      { "ciudad": "Los Ángeles", "precio": 850 },
+      { "ciudad": "Sídney", "precio": 900 },
+      { "ciudad": "Bangkok", "precio": 450 }
+    ]
+  },
+  {
+    "origen": "México D.F.",
+    "destinos": [
+      { "ciudad": "Cancún", "precio": 120 },
+      { "ciudad": "Nueva York", "precio": 420 },
+      { "ciudad": "Madrid", "precio": 850 },
+      { "ciudad": "Bogotá", "precio": 300 },
+      { "ciudad": "Los Ángeles", "precio": 350 }
+    ]
+  },
+  {
+    "origen": "Buenos Aires",
+    "destinos": [
+      { "ciudad": "Santiago de Chile", "precio": 220 },
+      { "ciudad": "Lima", "precio": 350 },
+      { "ciudad": "Madrid", "precio": 950 },
+      { "ciudad": "Miami", "precio": 800 },
+      { "ciudad": "Río de Janeiro", "precio": 380 }
+    ]
+  },
+  {
+    "origen": "Dubái",
+    "destinos": [
+      { "ciudad": "Londres", "precio": 600 },
+      { "ciudad": "Bangkok", "precio": 450 },
+      { "ciudad": "Barcelona", "precio": 620 },
+      { "ciudad": "El Cairo", "precio": 280 },
+      { "ciudad": "Nueva Delhi", "precio": 300 }
+    ]
+  },
+  {
+    "origen": "Sídney",
+    "destinos": [
+      { "ciudad": "Melbourne", "precio": 100 },
+      { "ciudad": "Tokio", "precio": 920 },
+      { "ciudad": "Los Ángeles", "precio": 1050 },
+      { "ciudad": "Auckland", "precio": 250 }
     ]
   }
 ]

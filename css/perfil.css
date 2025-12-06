@@ -1,0 +1,183 @@
+/* Estilos de la página de perfil */
+
+/* Layout Principal */
+.profile-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr; /* Sidebar fijo, contenido flexible */
+    gap: 2rem;
+    margin-top: 1rem;
+    align-items: start; /* Para que el sidebar no se estire hacia abajo */
+}
+
+@media (max-width: 768px) {
+    .profile-layout {
+        grid-template-columns: 1fr; /* Una columna en móvil */
+    }
+}
+
+/* --- SIDEBAR (IZQUIERDA) --- */
+.profile-sidebar {
+    background-color: var(--bg-card);
+    border-radius: 12px;
+    border: 1px solid var(--color-borde);
+    overflow: hidden;
+    box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+.profile-summary-card {
+    padding: 2rem;
+    text-align: center;
+    background-color: var(--bg-secondary);
+    border-bottom: 1px solid var(--color-borde);
+}
+
+.sidebar-avatar-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--bg-card);
+    margin-bottom: 10px;
+    box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+.profile-summary-card h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--text-main);
+}
+
+/* Menú de botones */
+.profile-menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-btn {
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 1rem 1.5rem;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-left: 4px solid transparent;
+    transition: all 0.2s;
+}
+
+.menu-btn:hover {
+    background-color: var(--bg-hover);
+    color: var(--color-primario);
+}
+
+.menu-btn.active {
+    background-color: var(--bg-hover);
+    color: var(--color-primario);
+    border-left-color: var(--color-primario);
+    font-weight: bold;
+}
+
+.menu-btn.logout-btn {
+    color: var(--color-error);
+    border-top: 1px solid var(--color-borde);
+    margin-top: 0.5rem;
+}
+.menu-btn.logout-btn:hover {
+    background-color: var(--bg-error);
+}
+
+/* --- CONTENIDO (DERECHA) --- */
+.profile-content h2 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: var(--text-main);
+    border-bottom: 2px solid var(--bg-secondary);
+    padding-bottom: 0.5rem;
+}
+
+/* Pestañas (Mostrar/Ocultar) */
+.tab-pane {
+    display: none; /* Oculto por defecto */
+    animation: fadeIn 0.3s ease;
+}
+.tab-pane.active {
+    display: block; /* Solo el activo se ve */
+}
+
+/* Tarjeta de Info Personal */
+.info-card {
+    background-color: var(--bg-card);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid var(--color-borde);
+}
+
+/* Tarjetas de Billetes y Posts */
+.item-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--color-borde);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 5px var(--shadow-color);
+    position: relative;
+}
+
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: var(--color-primario);
+}
+
+.item-details {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.item-status {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    background-color: var(--bg-exito);
+    color: var(--color-exito);
+}
+
+/* Botón Eliminar Post */
+.delete-post-btn {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    background-color: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--color-borde);
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.2s;
+}
+
+.delete-post-btn:hover {
+    background-color: var(--bg-error);
+    color: var(--color-error);
+    border-color: var(--color-error);
+}
+
+.empty-state {
+    text-align: center;
+    color: var(--text-secondary);
+    padding: 3rem;
+    background-color: var(--bg-secondary);
+    border-radius: 8px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}

@@ -208,5 +208,4 @@ $(function() {
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
     });
 
-    // --- FIN DE LÓGICA DEL SELECTOR DE IDIOMA PERSONALIZADO ---
 })
