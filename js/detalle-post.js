@@ -2,7 +2,7 @@
 
 $(function() {
 
-    // --- 1. LEER ID DE LA URL ---
+    // --- LEER ID DE LA URL ---
     // Si la URL es detalle-post.html?id=1731234567890
     // postId será "1731234567890"
     const urlParams = new URLSearchParams(window.location.search);
@@ -14,7 +14,7 @@ $(function() {
         return;
     }
 
-    // --- 2. BUSCAR EL POST EN LOCALSTORAGE ---
+    // --- BUSCAR EL POST EN LOCALSTORAGE ---
     let allPosts = JSON.parse(localStorage.getItem('communityPosts')) || [];
     
     // Usamos '==' en lugar de '===' porque el ID en URL es string y en JSON es number
@@ -31,17 +31,27 @@ $(function() {
     const DEFAULT_AVATAR = `${pathPrefix}/assets/images/default-avatar.png`;
 
 
-    // --- 3. RENDERIZAR EL POST ORIGINAL ---
+    // --- RENDERIZAR EL POST ORIGINAL ---
     const avatarSrc = currentPost.userAvatar || DEFAULT_AVATAR;
     
-    // Badge de tipo (Consejo vs Pregunta)
+    // ICONOS
+    const ICON_PREGUNTA = `${pathPrefix}/images/red-question-mark.svg`;
+    const ICON_CONSEJO = `${pathPrefix}/images/lightbulb.svg`;
+
+    // Lógica de tipo
     const postType = currentPost.type || 'consejo';
     const badgeClass = postType === 'pregunta' ? 'badge-pregunta' : 'badge-consejo';
-    const badgeText = postType === 'pregunta' ? '❓ Pregunta' : '💡 Consejo';
+    
+    // CAMBIO AQUÍ
+    const iconSrc = postType === 'pregunta' ? ICON_PREGUNTA : ICON_CONSEJO;
+    const labelText = postType === 'pregunta' ? 'Pregunta' : 'Consejo';
 
     const postHtml = `
-        <div class="post-card">
-            <span class="post-badge ${badgeClass}">${badgeText}</span>
+        <div class="post-card" style="border: 2px solid var(--color-borde);">
+            <span class="post-badge ${badgeClass}">
+                <img src="${iconSrc}" alt="Icono"> ${labelText}
+            </span>
+            
             <div class="post-header">
                 <img src="${avatarSrc}" alt="${currentPost.userName}" class="post-avatar">
                 <div class="post-info">
@@ -49,7 +59,7 @@ $(function() {
                     <p class="post-date">${currentPost.date}</p>
                 </div>
             </div>
-            <div class="post-body">
+            <div class="post-body" style="font-size: 1.1rem;">
                 ${currentPost.content}
             </div>
         </div>
@@ -57,9 +67,9 @@ $(function() {
     $('#original-post-container').html(postHtml);
 
 
-    // --- 4. GESTIÓN DE COMENTARIOS ---
+    // --- GESTIÓN DE COMENTARIOS ---
     
-    // A. Renderizar lista
+    // Renderizar lista
     const $commentsList = $('#comments-list');
 
     function renderComments() {
@@ -93,7 +103,7 @@ $(function() {
     renderComments();
 
 
-    // B. Formulario de Comentarios
+    // Formulario de Comentarios
     const loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser'));
     const $commentFormBox = $('#comment-form-box');
     const $authWarning = $('#comment-auth-warning');
@@ -107,7 +117,7 @@ $(function() {
         $authWarning.show();
     }
 
-    // C. Enviar Comentario
+    // Enviar Comentario
     $('#comment-form').on('submit', function(e) {
         e.preventDefault();
         
@@ -131,14 +141,14 @@ $(function() {
         // Añadir comentario al post en memoria
         currentPost.comments.push(newComment);
 
-        // --- PASO CRÍTICO: ACTUALIZAR LOCALSTORAGE ---
-        // 1. Encontrar el índice del post en el array gigante
+        // --- ACTUALIZAR LOCALSTORAGE ---
+        // Encontrar el índice del post en el array gigante
         const postIndex = allPosts.findIndex(p => p.id == postId);
         
-        // 2. Actualizar ese post en el array gigante
+        // Actualizar ese post en el array gigante
         allPosts[postIndex] = currentPost;
         
-        // 3. Guardar el array gigante de nuevo
+        // Guardar el array gigante de nuevo
         localStorage.setItem('communityPosts', JSON.stringify(allPosts));
 
         // Limpiar y repintar

@@ -69,8 +69,8 @@
                         <div class="form-group">
                             <label for="post-type">Tipo de publicación:</label>
                             <select id="post-type" class="form-select">
-                                <option value="consejo">&#x1F4A1; Consejo</option>
-                                <option value="pregunta">&#x2048; Pregunta</option>
+                                <option value="consejo">Consejo</option>
+                                <option value="pregunta">Pregunta</option>
                             </select>
                             <textarea id="post-content" rows="3" placeholder="Escribe aquí tu consejo, pregunta o experiencia..." required></textarea>
                         </div>
@@ -84,8 +84,14 @@
 
                 <div class="feed-filters">
                     <button class="filter-btn active" data-filter="all">Todos</button>
-                    <button class="filter-btn" data-filter="consejo">&#x1F4A1; Consejos</button>
-                    <button class="filter-btn" data-filter="pregunta">&#x2048; Preguntas</button>
+                    <button class="filter-btn" data-filter="consejo">
+                        <img src="../images/lightbulb.svg" alt="Consejos" class="filter-icon">
+                        Consejos
+                    </button>
+                    <button class="filter-btn" data-filter="pregunta">
+                        <img src="../images/red-question-mark.svg" alt="Preguntas" class="filter-icon">
+                        Preguntas
+                    </button>
                 </div>
 
                 <div id="posts-feed">

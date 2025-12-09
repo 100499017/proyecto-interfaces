@@ -178,21 +178,23 @@ $(function() {
     const body = document.body;
 
     // Función para cambiar el icono
-    function updateThemeIcon(isDark) {
+    function updateTheme(isDark) {
         // Si es oscuro, mostramos el sol
         // Si es claro, mostramos la luna
         const iconSrc = isDark ? ICON_SUN : ICON_MOON;
         const altText = isDark ? "Cambiar a modo claro" : "Cambiar a modo oscuro";
+
+        // Cambiar variable 'theme' en localStorage
+        localStorage.setItem('theme', isDark ? 'dark' : 'light')
 
         $themeToggleBtn.html(`<img src="${iconSrc}" alt="${altText}">`);
     }
 
     // Aplicar tema guardado al inicio
     const savedTheme = localStorage.getItem('theme');
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
     let isDarkMode = false;
-    if (savedTheme == 'dark' || (!savedTheme && systemPrefersDark)) {
+    if (savedTheme == 'dark') {
         $(body).addClass('dark-mode');
         isDarkMode = true;
     } else {
@@ -200,7 +202,7 @@ $(function() {
     }
 
     // Actualizamos el icono inicial
-    updateThemeIcon(isDarkMode);
+    updateTheme(isDarkMode);
 
     // Evento Click para cambiar tema
     $themeToggleBtn.on('click', function() {
@@ -209,7 +211,7 @@ $(function() {
         const isDarkNow = $(body).hasClass('dark-mode');
 
         // Actualizar icono
-        updateThemeIcon(isDarkNow);
+        updateTheme(isDarkNow);
 
         // Guardar preferencia
         localStorage.setItem('theme', isDark ? 'dark' : 'light');

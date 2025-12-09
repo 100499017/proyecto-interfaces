@@ -103,6 +103,10 @@ $(function() {
             return;
         }
 
+        // DEFINIR ICONOS (Usamos pathPrefix definido al inicio del archivo)
+        const ICON_PREGUNTA = `${pathPrefix}/images/red-question-mark.svg`;
+        const ICON_CONSEJO = `${pathPrefix}/images/lightbulb.svg`;
+
         // Generar HTML para cada post
         posts.forEach(post => {
             const avatarSrc = post.userAvatar || DEFAULT_AVATAR_PATH;
@@ -110,11 +114,16 @@ $(function() {
             // Determinar etiqueta (badge) y estilo
             const postType = post.type || 'consejo'; // Por defecto consejo si es antiguo
             const badgeClass = postType === 'pregunta' ? 'badge-pregunta' : 'badge-consejo';
-            const badgeText = postType === 'pregunta' ? '❓ Pregunta' : '💡 Consejo';
+            
+            // Elegimos el svg y el texto
+            const iconSrc = postType === 'pregunta' ? ICON_PREGUNTA : ICON_CONSEJO;
+            const labelText = postType === 'pregunta' ? 'Pregunta' : 'Consejo';
 
             const html = `
                 <div class="post-card">
-                    <span class="post-badge ${badgeClass}">${badgeText}</span>
+                    <span class="post-badge ${badgeClass}">
+                        <img src="${iconSrc}" alt="Icono"> ${labelText}
+                    </span>
 
                     <div class="post-header">
                         <img src="${avatarSrc}" alt="${post.userName}" class="post-avatar">
@@ -127,7 +136,7 @@ $(function() {
                         ${post.content}
                     </div>
                     <div class="post-footer">
-                        <a href="detalle-post.html?id=${post.id}" class="btn-comment">
+                        <a href="detalle-post.html?id=${post.id}" class="btn-comment" style="text-decoration:none; color:var(--color-primario); font-weight:600;">
                             💬 Ver comentarios (${post.comments ? post.comments.length : 0})
                         </a>
                     </div>
