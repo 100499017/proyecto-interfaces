@@ -106,6 +106,7 @@ header {
 
 #nav-links {
     display: flex;
+    align-items: center;
     gap: 20px;
 }
 
@@ -208,6 +209,9 @@ footer {
     display: block;
     pointer-events: none; /* El click lo recibe el botón, no la imagen */
     filter: invert(0); /* Por defecto */
+}
+body.dark-mode .icon-btn img {
+    filter: invert(1);
 }
 
 /* --- SELECTOR DE IDIOMA (CORREGIDO) --- */

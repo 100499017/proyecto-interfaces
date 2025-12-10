@@ -56,6 +56,8 @@
     font-size: 1.1rem;
     line-height: 1.6;
     color: var(--text-main);
+    overflow-wrap: break-word;  /* Rompe palabras largas */
+    word-break: break-word;
 }
 
 /* --- ESTILOS DE LOS BADGES (ICONOS BOMBILLA/INTERROGACIÓN) --- */
@@ -152,4 +154,6 @@
     font-size: 1rem;
     color: var(--text-main);
     line-height: 1.5;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }

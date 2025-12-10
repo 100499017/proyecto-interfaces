@@ -67,5 +67,57 @@ $(function() {
     // Inicia el autoplay
     startAutoplay();
 
-    // --- FIN DE LÓGICA DEL CARRUSEL DE IMÁGENES ---
+    // --- LÓGICA DE CARGA DE PUBLICACIONES RECIENTES ---
+    const $communityList = $('#home-community-list');
+    
+    // Carga de iconos svg
+    const ICON_PREGUNTA = 'images/red-question-mark.svg';
+    const ICON_CONSEJO = 'images/lightbulb.svg';
+
+    function loadHomeCommunity() {
+        const posts = JSON.parse(localStorage.getItem('communityPosts')) || [];
+        
+        $communityList.empty();
+
+        if (posts.length === 0) {
+            $communityList.html('<p style="color:var(--text-secondary);">Aún no hay actividad reciente.</p>');
+            return;
+        }
+
+        // Tomamos solo los 3 últimos
+        const latestPosts = posts.slice(0, 3);
+
+        latestPosts.forEach(post => {
+            const isQuestion = post.type === 'pregunta';
+            const iconSrc = isQuestion ? ICON_PREGUNTA : ICON_CONSEJO;
+            const typeText = isQuestion ? 'Pregunta' : 'Consejo';
+
+            const html = `
+                <div class="home-post-card">
+                    <div class="home-post-header">
+                        <img src="${iconSrc}" alt="${typeText}">
+                        <span>${typeText} de ${post.userName}</span>
+                    </div>
+                    <div class="home-post-content">
+                        "${post.content}"
+                    </div>
+                    <a href="pages/detalle-post.html?id=${post.id}" class="home-post-footer">
+                        Leer conversación &rarr;
+                    </a>
+                </div>
+            `;
+            $communityList.append(html);
+        });
+    }
+
+    // Ejecutar carga de publicaciones recientes
+    loadHomeCommunity();
+
+    // BANNER DE REGISTRO
+    if (sessionStorage.getItem('loggedInUser')) {
+        $('.btn-register').on('click', function(e) {
+            e.preventDefault();
+            alert("Cierra sesión antes de crear una nueva cuenta.")
+        });
+    }
 })

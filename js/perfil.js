@@ -114,7 +114,7 @@ $(function() {
             
             const html = `
                 <div class="item-card">
-                    <button class="delete-post-btn" data-id="${p.id}" title="Eliminar publicación">🗑️ Eliminar</button>
+                    <button class="delete-post-btn" data-id="${p.id}" title="Eliminar publicación">Eliminar</button>
                     <div class="item-header">
                         <span style="display:flex; align-items:center;">
                             <img src="${iconSrc}" style="width:16px; height:16px; margin-right:5px;"> 

@@ -38,7 +38,7 @@ $(function() {
         continents.forEach(continent => {
             // Añade el título del continente
             $container.append(`<h2 class="continent-heading">${continent.name}</h2>`);
-
+            
             // Bucle por cada país en el continente
             continent.countries.forEach(country => {
                 // Añade el título del país
@@ -46,11 +46,11 @@ $(function() {
 
                 // Crea un 'div' para la cuadrícula de ciudades de este país
                 const $cityGrid = $('<div class="city-grid"></div>');
-
+                
                 // Bucle por cada ciudad en el país
                 country.cities.forEach(city => {
                     const isFav = userFavs.some(f => f.cityName === city.name);
-                    
+
                     // ELEGIR QUÉ IMAGEN MOSTRAR
                     const iconSrc = isFav ? ICON_FILLED : ICON_EMPTY;
 
@@ -127,28 +127,32 @@ $(function() {
     });
 
     // Función de búsqueda/filtrado
-    function filterDestinations() {
-        const searchTerm = $searchBox.val().toLowerCase();
+    function filterDestinations(searchTerm) {
+        // Si no pasamos argumento, lo leemos del input
+        if (typeof searchTerm !== 'string') {
+            searchTerm = $searchBox.val().toLowerCase();
+        } else {
+            searchTerm = searchTerm.toLowerCase();
+        }
 
-        // Si la búsqueda está vacía, muestra todo
         if (searchTerm.length === 0) {
             renderDestinations(allDestinations);
             return;
         }
-
+        
         // Lógica de filtrado
         // .map() y .filter() para crear un *nuevo* array con solo los resultados
         const filteredContinents = allDestinations.map(continent => {
-            
+
             // Revisa si el nombre del continente coincide
             const continentMatch = continent.name.toLowerCase().includes(searchTerm);
-            
+
             // Filtra los países
             const filteredCountries = continent.countries.map(country => {
-                
+
                 // Revisa si el nombre del país coincide
                 const countryMatch = country.name.toLowerCase().includes(searchTerm);
-                
+
                 // Filtra las ciudades
                 const filteredCities = country.cities.filter(city => {
                     const cityMatch = city.name.toLowerCase().includes(searchTerm);
@@ -161,7 +165,7 @@ $(function() {
                     return { ...country, cities: filteredCities };
                 }
                 return null; // Si no, descarta este país
-            
+
             }).filter(country => country !== null); // Limpia los países nulos
 
             // Si este continente tiene países que coinciden, devuélvelo
@@ -169,7 +173,7 @@ $(function() {
                 return { ...continent, countries: filteredCountries };
             }
             return null; // Si no, descarta este continente
-        
+
         }).filter(continent => continent !== null); // Limpia los continentes nulos
 
         // Renderiza solo los resultados filtrados
@@ -179,7 +183,9 @@ $(function() {
     // Asigna la función de filtrado al evento 'input' del buscador
     $searchBox.on('input', filterDestinations);
 
-    let destinations_path = '../data/ciudades-del-mundo-es.json';
+    // --- 4. CARGA DE JSON Y LÓGICA DE URL ---
+    // Determinamos qué JSON cargar según idioma
+    let destinations_path = '../data/ciudades-del-mundo-es.json'; 
     if (localStorage.getItem('lang') === 'en') {
         destinations_path = '../data/ciudades-del-mundo-en.json';
     }
@@ -188,9 +194,20 @@ $(function() {
     $.getJSON(destinations_path)
         .done(function(data) {
             allDestinations = data.continents; // Guarda los datos en la variable global
+            
+            // Miramos si hay algo en la URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const searchParam = urlParams.get('search');
 
-            // Muestra las ciudades por primera vez
-            renderDestinations(allDestinations);
+            if (searchParam) {
+                // Rellenamos el input
+                $searchBox.val(searchParam);
+                // Filtramos inmediatamente
+                filterDestinations(searchParam);
+            } else {
+                // Si no hay búsqueda, mostramos todo
+                renderDestinations(allDestinations);
+            }
         })
         .fail(function() {
             $container.html('<p class="no-results">Error al cargar los destinos. Inténtalo de nuevo más tarde.</p>');

@@ -4,6 +4,7 @@
 $(function() {
     // Redirigir a los usuarios que tengan una sesión iniciada
     if (sessionStorage.getItem('loggedInUser')) {
+        alert("Cierra sesión antes de crear una nueva cuenta.");
         window.location.href = '../index.html';
     }
 
