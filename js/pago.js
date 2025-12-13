@@ -67,6 +67,7 @@ $(function() {
     // Procesar pago
     $('#payment-form').on('submit', function(e) {
         e.preventDefault();
+        if (confirm('¿Estás seguro de que deseas realizar el pago?')) {
 
         // Simulación de procesamiento de pago
         const $btn = $(this).find('button');
@@ -100,6 +101,7 @@ $(function() {
             window.location.href = 'perfil.html'; // Ir al perfil a ver los billetes
 
         }, 2000); // Simular 2 segundos de espera
+        }
     });
 
     // Cancelar pago
