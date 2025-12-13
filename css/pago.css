@@ -138,6 +138,16 @@ h2, h3 {
     flex: 1;
 }
 
+/* Botón de cancelar */
+.submit-btn.btn-not-pay {
+    margin-top: 1.5rem;
+    width: 100%;
+    padding: 1.2rem;
+    font-size: 1.1rem;
+    background: linear-gradient(var(--color-primario) 0%, var(--color-primario-dark) 100%);
+    color: var(--text-inverse);
+}
+
 /* Botón de pagar */
 .submit-btn.btn-pay {
     margin-top: 1.5rem;

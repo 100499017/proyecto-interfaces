@@ -101,4 +101,14 @@ $(function() {
 
         }, 2000); // Simular 2 segundos de espera
     });
+
+    // Cancelar pago
+    $('.btn-not-pay').on('click', function(e) {
+        e.preventDefault();
+        if (confirm('¿Estás seguro de que deseas cancelar el pago? Se perderán los datos ingresados.')) {
+            // Limpiar borrador
+            sessionStorage.removeItem('draftBooking');
+            window.location.href = 'reservar.html';
+        }
+    });
 });
