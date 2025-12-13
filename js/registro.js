@@ -90,8 +90,9 @@ $(function() {
 
                     // localStorage tiene un límite de 5MB
                     // Base64 es 33% más grande que el archivo original
-                    if (avatarBase64.length > 5 * 1024 * 1024) {
-                        $avatarError.text('La imagen es demasiado grande (Máx ~5MB).').show();
+                    // Ponemos un límite de 2MB
+                    if (avatarBase64.length > 2 * 1024 * 1024) {
+                        $avatarError.text('La imagen es demasiado grande (Máx ~2MB).').show();
                         isValid = false;
                         avatarBase64 = null; // No lo guarda
                     }

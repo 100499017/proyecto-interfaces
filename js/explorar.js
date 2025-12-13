@@ -183,7 +183,7 @@ $(function() {
     // Asigna la función de filtrado al evento 'input' del buscador
     $searchBox.on('input', filterDestinations);
 
-    // --- 4. CARGA DE JSON Y LÓGICA DE URL ---
+    // --- CARGA DE JSON Y LÓGICA DE URL ---
     // Determinamos qué JSON cargar según idioma
     let destinations_path = '../data/ciudades-del-mundo-es.json'; 
     if (localStorage.getItem('lang') === 'en') {
@@ -197,13 +197,17 @@ $(function() {
             
             // Miramos si hay algo en la URL
             const urlParams = new URLSearchParams(window.location.search);
-            const searchParam = urlParams.get('search');
+            const rawSearch = urlParams.get('search'); // Luego hay que formatearlo
 
-            if (searchParam) {
+            if (rawSearch) {
+                // decodeURIComponent para manejar espacios y caracteres especiales
+                // .replace(/-/g, ' ') para reemplazar guiones por espacios
+                const cleanSearch = decodeURIComponent(rawSearch).replace(/-/g, ' ');
+
                 // Rellenamos el input
-                $searchBox.val(searchParam);
+                $searchBox.val(cleanSearch);
                 // Filtramos inmediatamente
-                filterDestinations(searchParam);
+                filterDestinations(cleanSearch);
             } else {
                 // Si no hay búsqueda, mostramos todo
                 renderDestinations(allDestinations);

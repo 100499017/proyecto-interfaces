@@ -138,6 +138,23 @@
     line-height: 1.6;
 }
 
+.item-details p {
+    overflow-wrap: break-word; /* Parte palabras largas */
+    word-break: break-word;
+    
+    /* Limitar a 3 líneas */
+    display: -webkit-box;
+    line-clamp: 3;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Añade los tres puntos (...) */
+    
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
+}
+
 .item-status {
     display: inline-block;
     padding: 4px 8px;

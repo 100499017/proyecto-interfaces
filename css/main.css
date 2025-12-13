@@ -387,7 +387,7 @@ body.dark-mode .icon-btn img {
 }
 
 /* --- RESPONSIVE --- */
-@media (max-width: 768px) {
+@media (max-width: 800px) {
     .header-container {
         flex-direction: column;
         gap: 1rem;
