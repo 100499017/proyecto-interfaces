@@ -78,12 +78,12 @@
     font-weight: bold;
 }
 
-.menu-btn.logout-btn {
+.menu-btn.bad-btn {
     color: var(--color-error);
     border-top: 1px solid var(--color-borde);
     margin-top: 0.5rem;
 }
-.menu-btn.logout-btn:hover {
+.menu-btn.bad-btn:hover {
     background-color: var(--bg-error);
 }
 

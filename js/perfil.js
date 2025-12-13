@@ -190,7 +190,7 @@ $(function() {
         });
     }
 
-    // 10. LÓGICA PARA QUITAR FAVORITO DESDE EL PERFIL
+    // LÓGICA PARA QUITAR FAVORITO DESDE EL PERFIL
     $(document).on('click', '.btn-remove-fav', function() {
         const cityName = $(this).data('name');
         let allFavs = JSON.parse(localStorage.getItem('favorites')) || [];
@@ -209,5 +209,45 @@ $(function() {
             window.location.href = '../index.html';
         }
     });
+
+    // ELIMINAR CUENTA
+    $('#delete-btn').on('click', function() {
+        if(confirm('¿Estás seguro de que quieres eliminar tu cuenta? Esta acción no se puede deshacer.')) {
+            // Eliminar sitios favoritos
+            let allFavs = JSON.parse(localStorage.getItem('favorites')) || [];
+            const updatedFavs = allFavs.filter(f => f.userEmail !== loggedInUser.email);
+            localStorage.setItem('favorites', JSON.stringify(updatedFavs));
+
+            // Poner los posts como "Usuario Eliminado"
+            let allPosts = JSON.parse(localStorage.getItem('communityPosts')) || [];
+            const anonymizedPosts = allPosts.map(p => {
+                if (p.userEmail === loggedInUser.email) {
+                    return {
+                        ...p,
+                        userAvatar: DEFAULT_AVATAR,
+                        userEmail: null,
+                        userName: 'Usuario Eliminado',
+                    };
+                }
+                return p;
+            });
+            localStorage.setItem('communityPosts', JSON.stringify(anonymizedPosts));
+
+            // Eliminar billetes
+            let allBookings = JSON.parse(localStorage.getItem('bookings')) || [];
+            const updatedBookings = allBookings.filter(b => b.userEmail !== loggedInUser.email);
+            localStorage.setItem('bookings', JSON.stringify(updatedBookings));
+   
+            // Eliminar usuario
+            let allUsers = JSON.parse(localStorage.getItem('users')) || [];
+            const updatedUsers = allUsers.filter(u => u.email !== loggedInUser.email);
+            localStorage.setItem('users', JSON.stringify(updatedUsers));
+
+            // Cerrar sesión y redirigir
+            sessionStorage.removeItem('loggedInUser');
+            alert('Tu cuenta ha sido eliminada.');
+            window.location.href = '../index.html';
+            }
+        });
 
 });

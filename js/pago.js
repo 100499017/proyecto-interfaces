@@ -69,38 +69,38 @@ $(function() {
         e.preventDefault();
         if (confirm('¿Estás seguro de que deseas realizar el pago?')) {
 
-        // Simulación de procesamiento de pago
-        const $btn = $(this).find('button');
-        $btn.text('Procesando...').prop('disabled', true);
+            // Simulación de procesamiento de pago
+            const $btn = $(this).find('button');
+            $btn.text('Procesando...').prop('disabled', true);
 
-        setTimeout(() => {
-            // Crear el objeto final de reserva
-            let allBookings = JSON.parse(localStorage.getItem('bookings')) || [];
-            
-            const confirmedBooking = {
-                id: Date.now(),
-                userEmail: loggedInUser.email,
-                origen: draft.origen,
-                destino: draft.destino,
-                fecha: draft.fecha,
-                pasajeros: draft.pasajeros,
-                mascotas: draft.mascotas, // Array con tamaños
-                totalPagado: $finalAmount.text() + ' ' + $currencySelect.val(), // Guardamos cuánto pagó y en qué moneda
-                estado: 'Pagado'
-            };
+            setTimeout(() => {
+                // Crear el objeto final de reserva
+                let allBookings = JSON.parse(localStorage.getItem('bookings')) || [];
+                
+                const confirmedBooking = {
+                    id: Date.now(),
+                    userEmail: loggedInUser.email,
+                    origen: draft.origen,
+                    destino: draft.destino,
+                    fecha: draft.fecha,
+                    pasajeros: draft.pasajeros,
+                    mascotas: draft.mascotas, // Array con tamaños
+                    totalPagado: $finalAmount.text() + ' ' + $currencySelect.val(), // Guardamos cuánto pagó y en qué moneda
+                    estado: 'Pagado'
+                };
 
-            // Guardar en Historial de Pagos en localStorage
-            allBookings.push(confirmedBooking);
-            localStorage.setItem('bookings', JSON.stringify(allBookings));
+                // Guardar en Historial de Pagos en localStorage
+                allBookings.push(confirmedBooking);
+                localStorage.setItem('bookings', JSON.stringify(allBookings));
 
-            // Limpiar borrador
-            sessionStorage.removeItem('draftBooking');
+                // Limpiar borrador
+                sessionStorage.removeItem('draftBooking');
 
-            // Éxito
-            alert('¡Pago realizado con éxito! Tu viaje ha sido confirmado.');
-            window.location.href = 'perfil.html'; // Ir al perfil a ver los billetes
+                // Éxito
+                alert('¡Pago realizado con éxito! Tu viaje ha sido confirmado.');
+                window.location.href = 'perfil.html'; // Ir al perfil a ver los billetes
 
-        }, 2000); // Simular 2 segundos de espera
+            }, 2000); // Simular 2 segundos de espera
         }
     });
 
