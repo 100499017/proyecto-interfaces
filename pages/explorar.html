@@ -22,10 +22,10 @@
 
             <!--Navegación-->
             <nav id="nav-links">
-                <a href="../index.html">Inicio</a>
-                <a href="explorar.html">Explorar</a>
-                <a href="comunidad.html">Comunidad</a>
-                <a href="reservar.html">Comprar Billetes</a>
+                <a href="../index.html" data-i18n="nav_home">Inicio</a>
+                <a href="explorar.html" data-i18n="nav_explore">Explorar</a>
+                <a href="comunidad.html" data-i18n="nav_community">Comunidad</a>
+                <a href="reservar.html" data-i18n="nav_booking">Comprar Billetes</a>
             </nav>
 
             <div id="header-actions">
@@ -60,16 +60,16 @@
     <main>
         <div class="main-container">
             <div id="explore-header">
-                <h1>Explora Destinos</h1>
-                <p>Encuentra tu próxima aventura. Busca por ciudad, país o continente.</p>
+                <h1 data-i18n="explore_title">Explora Destinos</h1>
+                <p data-i18n="explore_subtitle">Encuentra tu próxima aventura. Busca por ciudad, país o continente.</p>
 
                 <div id="search-bar">
-                    <input type="search" id="search-box" placeholder="Buscar destino...">
+                    <input type="search" id="search-box" data-i18n="search_placeholder" placeholder="Busca un país, ciudad o continente...">
                 </div>
             </div>
 
             <div id="results-container">
-                <p class="loading-message">Cargando destinos...</p>
+                <p class="loading-message" data-i18n="loading_msg">Cargando destinos...</p>
             </div>
         </div>
     </main>
@@ -84,26 +84,28 @@
             <span class="modal-close" id="close-modal-btn">&times;</span>
 
             <!--Formulario-->
-            <h2>Iniciar Sesión</h2>
+            <h2 data-i18n="login_title">Iniciar Sesión</h2>
             <form id="login-form">
                 <div class="form-group">
-                    <label for="login-email">Email:</label>
+                    <label for="login-email" data-i18n="label_email">Email:</label>
                     <input type="email" id="login-email" name="email" required>
                 </div>
                 <div class="form-group">
-                    <label for="login-password">Contraseña:</label>
+                    <label for="login-password" data-i18n="label_password">Contraseña:</label>
                     <input type="password" id="login-password" name="password" required>
                 </div>
-                <button type="submit" class="submit-btn">Entrar</button>
+                <button type="submit" class="submit-btn" data-i18n="btn_enter">Entrar</button>
             </form>
             <p class="modal-register-link">
-                ¿No tienes una cuenta? <a href="registro.html">Regístrate aquí.</a>
+                <span data-i18n="register_text">¿No tienes una cuenta? </span>
+                <a href="registro.html" data-i18n="register_link">Regístrate aquí.</a>
             </p>
         </div>
     </div>
 
     <!--Scripts-->
     <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/traduccion.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/explorar.js"></script>
 </body>

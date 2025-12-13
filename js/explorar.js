@@ -1,6 +1,28 @@
 /* Lógica para exploración */
 
 $(function() {
+
+    // --- LÓGICA DE TRADUCCIÓN ---
+    const lang = localStorage.getItem('lang') || 'es'; // 'es' por defecto
+    const t = translations[lang]; // Cargar el diccionario correcto
+
+    // Función para aplicar textos al HTML estático
+    function applyTranslations() {
+        $('[data-i18n]').each(function() {
+            const key = $(this).data('i18n');
+            if (t[key]) {
+                if ($(this).is('input')) {
+                    $(this).attr('placeholder', t[key]);
+                } else {
+                    $(this).text(t[key]);
+                }
+            }
+        });
+    }
+    
+    // Ejecutar traducción nada más empezar
+    applyTranslations();
+
     // Seleccionar elementos
     const $searchBox = $('#search-box');
     const $container = $('#results-container');
@@ -28,7 +50,7 @@ $(function() {
         $container.empty(); // Limpia el contenedor
 
         if (continents.length === 0) {
-            $container.html('<p class="no-results">No se encontraron destinos que coincidan con tu búsqueda.</p>');
+            $container.html(`<p class="no-results">${t['no_results']}</p>`);
             return;
         }
 
@@ -54,6 +76,11 @@ $(function() {
                     // ELEGIR QUÉ IMAGEN MOSTRAR
                     const iconSrc = isFav ? ICON_FILLED : ICON_EMPTY;
 
+                    // Traducción de titulo de botones para añadir/quitar favoritos
+                    const titleText = isFav 
+                        ? (lang === 'en' ? 'Remove from favorites' : 'Quitar de favoritos')
+                        : (lang === 'en' ? 'Add to favorites' : 'Añadir a favoritos');
+
                     // Crea la tarjeta de la ciudad
                     const $cityCard = $(`
                         <div class="city-card">
@@ -62,7 +89,7 @@ $(function() {
                                     data-country="${country.name}"
                                     data-img="${city.image.url}"
                                     data-desc="${city.description}"
-                                    title="${isFav ? 'Quitar de favoritos' : 'Añadir a favoritos'}">
+                                    title="${titleText}">
                                 <img src="${iconSrc}" alt="Favorito">
                             </button>
                             <img src="${city.image.url}" alt="${city.image.alt}" class="city-card-image">
@@ -88,7 +115,8 @@ $(function() {
         
         const loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser'));
         if (!loggedInUser) {
-            alert('Debes iniciar sesión para guardar favoritos.');
+            const msg = lang === 'en' ? 'Please login to save favorites.' : 'Inicia sesión para guardar favoritos.';
+            alert(msg);
             return;
         }
 
@@ -214,6 +242,6 @@ $(function() {
             }
         })
         .fail(function() {
-            $container.html('<p class="no-results">Error al cargar los destinos. Inténtalo de nuevo más tarde.</p>');
+            $container.html(`<p class="no-results">${t['error_loading']}</p>`);
         });
 });
