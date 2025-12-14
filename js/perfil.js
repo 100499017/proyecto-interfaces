@@ -176,7 +176,7 @@ $(function() {
                 <div class="city-card">
                     <img src="${city.image}" alt="${city.cityName}" class="city-card-image">
                     <div class="city-card-content">
-                        <h4>${city.cityName}</h4>
+                        <h3>${city.cityName}</h3>
                         <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:0.5rem;">${city.countryName}</p>
                         <p>${city.description}</p>
                         

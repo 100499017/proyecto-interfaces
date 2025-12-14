@@ -128,7 +128,7 @@ $(function() {
                     <div class="post-header">
                         <img src="${avatarSrc}" alt="${post.userName}" class="post-avatar">
                         <div class="post-info">
-                            <h4>${post.userName}</h4>
+                            <h3>${post.userName}</h3>
                             <p class="post-date">${post.date}</p>
                         </div>
                     </div>

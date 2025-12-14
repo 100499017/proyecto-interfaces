@@ -61,7 +61,7 @@ $(function() {
             // La imagen <img>
             const $avatarImg = $('<img>')
                 .attr('src', avatarSrc)
-                .attr('alt', 'Mi Perfil')
+                .attr('alt', 'Avatar')
                 .addClass('profile-avatar-img');
             
             const $profileText = $('<span></span>')

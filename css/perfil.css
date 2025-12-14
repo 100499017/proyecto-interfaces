@@ -41,7 +41,7 @@
     box-shadow: 0 2px 8px var(--shadow-color);
 }
 
-.profile-summary-card h3 {
+.profile-summary-card h1 {
     margin: 0;
     font-size: 1.1rem;
     color: var(--text-main);
@@ -253,7 +253,7 @@
     flex-direction: column;
 }
 
-.city-card-content h4 {
+.city-card-content h3 {
     font-size: 1.4rem;
     margin-top: 0;
     margin-bottom: 0.75rem;

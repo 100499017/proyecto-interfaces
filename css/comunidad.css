@@ -39,7 +39,7 @@
     border: 1px solid var(--color-borde);
 }
 
-#post-box h3 {
+#post-box h2 {
     margin-top: 0;
     margin-bottom: 1rem;
     font-size: 1.1rem;
@@ -89,7 +89,7 @@ label[for="post-type"] {
     margin-right: 10px;
 }
 
-.post-info h4 {
+.post-info h3 {
     margin: 0;
     font-size: 1rem;
     color: var(--text-main);
@@ -131,7 +131,7 @@ label[for="post-type"] {
     height: fit-content;
 }
 
-.sidebar-section h3 {
+.sidebar-section h2 {
     color: var(--text-main);
 }
 
@@ -228,12 +228,12 @@ label[for="post-type"] {
 
 .badge-consejo {
     background-color: var(--bg-exito);
-    color: var(--color-exito);
+    color: var(--text-main);
     border: 1px solid var(--color-exito);
 }
 
 .badge-pregunta {
     background-color: #FFF4E5;
-    color: #B95000;
+    color: #1A1A1A;
     border: 1px solid #B95000;
 }

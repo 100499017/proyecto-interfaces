@@ -67,7 +67,8 @@ $(function() {
         const petId = Date.now(); // ID único para borrar luego
         const html = `
             <div class="pet-row" id="pet-${petId}">
-                <select class="pet-size" name="pet-size" required>
+                <label for="pet-size-${petId}">Mascota:</label>
+                <select class="pet-size" id="pet-size-${petId}" name="pet-size" required>
                     <option value="" disabled selected>Tamaño de mascota...</option>
                     <option value="pequeno" data-fee="20">Pequeño (+20€)</option>
                     <option value="mediano" data-fee="50">Mediano (+50€)</option>

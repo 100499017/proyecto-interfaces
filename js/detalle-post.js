@@ -55,7 +55,7 @@ $(function() {
             <div class="post-header">
                 <img src="${avatarSrc}" alt="${currentPost.userName}" class="post-avatar">
                 <div class="post-info">
-                    <h4>${currentPost.userName}</h4>
+                    <h1>${currentPost.userName}</h1>
                     <p class="post-date">${currentPost.date}</p>
                 </div>
             </div>
