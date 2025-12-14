@@ -17,6 +17,7 @@
     --color-primario: #005A9C;
     --color-primario-dark: #0D3B66;
     --color-acento: #F28C38;
+    --color-acento-oscuro: #803300;     /* Para error de contraste Wave */
     
     --color-borde: #EEEEEE;
     --shadow-color: rgba(0, 0, 0, 0.08);
@@ -154,7 +155,7 @@ input:focus, select:focus, textarea:focus {
 }
 
 .submit-btn, .btn-submit, button[type="submit"] {
-    background-color: var(--bg-hover);
+    background-color: var(--color-primario);
     color: var(--text-inverse);
     border: none;
     padding: 0.8rem 1.5rem;
