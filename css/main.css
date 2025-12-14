@@ -178,6 +178,17 @@ footer {
     margin-top: auto;
 }
 
+.sr-only { /* Ocultamos los elementos añadidos para los lectores de pantalla */
+    position: absolute;
+    width: 1px; 
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
 /* --- COMPONENTES ESPECÍFICOS (Modales, Tema, Idioma) --- */
 
 /* Botón Toggle Tema */

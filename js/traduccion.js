@@ -9,6 +9,7 @@ const translations = {
         // Página Explorar
         "explore_title": "Explorar Destinos",
         "explore_subtitle": "Descubre tu próxima aventura",
+        "search_label": "Buscar destino",
         "search_placeholder": "Busca un país, ciudad o continente...",
         "loading_msg": "Cargando destinos...",
         "no_results": "No se encontraron destinos que coincidan con tu búsqueda.",
@@ -32,6 +33,7 @@ const translations = {
         // Explore Page
         "explore_title": "Explore Destinations",
         "explore_subtitle": "Discover your next adventure",
+        "search_label": "Search destination",
         "search_placeholder": "Search for a country, city, or continent...",
         "loading_msg": "Loading destinations...",
         "no_results": "No destinations found matching your search.",
