@@ -141,7 +141,7 @@ body.dark-mode .search-icon {
 
 #btn-search-home {
     background-color: var(--color-borde);
-    color: var(--text-inverse);
+    color: var(--text-main);
     border: none;
     padding: 12px 30px;
     border-radius: 50px;
@@ -253,8 +253,8 @@ body.dark-mode .search-icon {
 }
 
 .btn-register {
-    background-color: var(--color-acento-oscuro);
-    color: white;
+    background-color: var(--bg-card);
+    color: var(--text-main);
     padding: 1rem 2rem;
     border-radius: 50px;
     font-weight: bold;

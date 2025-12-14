@@ -301,7 +301,7 @@ body.dark-mode .icon-btn img {
 /* Botón Login */
 .login-btn {
     background-color: var(--color-borde);
-    color: var(--text-inverse);
+    color: var(--text-main);
     border: none;
     padding: 6px 16px;
     border-radius: 4px;
