@@ -181,7 +181,7 @@ $(function() {
     });
 
     // Cancelar pago
-    $('.btn-not-pay').on('click', function(e) {
+    $('.btn-cancel-pay').on('click', function(e) {
         e.preventDefault();
         if (confirm('¿Estás seguro de que deseas cancelar el pago? Se perderán los datos ingresados.')) {
             // Limpiar borrador

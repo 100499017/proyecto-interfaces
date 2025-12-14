@@ -157,13 +157,20 @@ h2, h3 {
     display: none; 
 }
 
-/* Botón de cancelar */
-.submit-btn.btn-not-pay {
-    margin-top: 1.5rem;
-    width: 100%;
-    padding: 1.2rem;
-    font-size: 1.1rem;
-    background: linear-gradient(var(--color-primario) 0%, var(--color-primario-dark) 100%);
+/* Botón para cancelar pago */
+#btn-cancel-pay {
+    background-color: var(--bg-error);
+    color: var(--color-error);
+    border: 1px solid var(--color-error);
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+#btn-cancel-pay:hover {
+    background-color: var(--color-error);
     color: var(--text-inverse);
 }
 
