@@ -110,6 +110,7 @@ $(function() {
 
         myPosts.forEach(p => {
             const iconSrc = p.type === 'pregunta' ? ICON_PREGUNTA : ICON_CONSEJO;
+            const iconLabel = p.type === 'pregunta' ? 'Pregunta' : 'Consejo';
             const labelText = p.type === 'pregunta' ? 'Pregunta' : 'Consejo';
             
             const html = `
@@ -117,7 +118,7 @@ $(function() {
                     <button class="delete-post-btn" data-id="${p.id}" title="Eliminar publicación">Eliminar</button>
                     <div class="item-header">
                         <span style="display:flex; align-items:center;">
-                            <img src="${iconSrc}" style="width:16px; height:16px; margin-right:5px;"> 
+                            <img src="${iconSrc}" alt="${iconLabel}" style="width:16px; height:16px; margin-right:5px;"> 
                             ${labelText}
                         </span>
                         <span style="color:var(--text-secondary); font-weight:normal; font-size:0.8rem;">${p.date}</span>
