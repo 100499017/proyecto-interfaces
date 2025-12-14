@@ -78,12 +78,12 @@
     font-weight: bold;
 }
 
-.menu-btn.bad-btn {
+.menu-btn.logout-btn {
     color: var(--color-error);
     border-top: 1px solid var(--color-borde);
     margin-top: 0.5rem;
 }
-.menu-btn.bad-btn:hover {
+.menu-btn.logout-btn:hover {
     background-color: var(--bg-error);
 }
 
@@ -111,6 +111,22 @@
     padding: 2rem;
     border-radius: 12px;
     border: 1px solid var(--color-borde);
+}
+
+.delete-account-btn {
+    background-color: var(--bg-error);
+    color: var(--color-error);
+    border: 1px solid var(--color-error);
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.delete-account-btn:hover {
+    background-color: var(--color-error);
+    color: var(--text-inverse);
 }
 
 /* Tarjetas de Billetes y Posts */

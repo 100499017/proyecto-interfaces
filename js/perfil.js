@@ -211,7 +211,7 @@ $(function() {
     });
 
     // ELIMINAR CUENTA
-    $('#delete-btn').on('click', function() {
+    $('#delete-account-btn').on('click', function() {
         if(confirm('¿Estás seguro de que quieres eliminar tu cuenta? Esta acción no se puede deshacer.')) {
             // Eliminar sitios favoritos
             let allFavs = JSON.parse(localStorage.getItem('favorites')) || [];
