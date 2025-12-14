@@ -17,7 +17,6 @@
     --color-primario: #005A9C;
     --color-primario-dark: #0D3B66;
     --color-acento: #F28C38;
-    --color-acento-oscuro: #803300;     /* Para error de contraste Wave */
     
     --color-borde: #EEEEEE;
     --shadow-color: rgba(0, 0, 0, 0.08);
@@ -179,17 +178,6 @@ footer {
     margin-top: auto;
 }
 
-.sr-only {      /* Ocultamos los elementos añadidos para los lectores de pantalla */
-    position: absolute;
-    width: 1px; 
-    height: 1px; 
-    padding: 0; 
-    margin: -1px; 
-    overflow: hidden; 
-    clip: rect(0, 0, 0, 0); 
-    border: 0; 
-}
-
 /* --- COMPONENTES ESPECÍFICOS (Modales, Tema, Idioma) --- */
 
 /* Botón Toggle Tema */
@@ -300,7 +288,7 @@ body.dark-mode .icon-btn img {
 
 /* Botón Login */
 .login-btn {
-    background-color: var(--color-borde);
+    background-color: var(--color-primario);
     color: var(--text-inverse);
     border: none;
     padding: 6px 16px;
@@ -308,7 +296,7 @@ body.dark-mode .icon-btn img {
     cursor: pointer;
     font-weight: 600;
 }
-.login-btn:hover { background-color: var(--bg-secondary); }
+.login-btn:hover { background-color: var(--color-primario-dark); }
 
 /* Estilos para enlaces que abren el login */
 .auth-trigger {
