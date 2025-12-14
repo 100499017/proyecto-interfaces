@@ -138,6 +138,25 @@ h2, h3 {
     flex: 1;
 }
 
+/* Errores de validación */
+#card-number-error {
+    color: var(--color-danger, #ff4444); 
+    font-size: 0.9em; 
+    display: none; 
+}
+
+#expir-date-error {
+    color: var(--color-danger, #ff4444); 
+    font-size: 0.9em; 
+    display: none; 
+}
+
+#cvv-error {
+    color: var(--color-danger, #ff4444); 
+    font-size: 0.9em; 
+    display: none; 
+}
+
 /* Botón de cancelar */
 .submit-btn.btn-not-pay {
     margin-top: 1.5rem;

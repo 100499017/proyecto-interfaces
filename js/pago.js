@@ -64,9 +64,85 @@ $(function() {
         }
     });
 
+    function validateCard(number, expir, cvv) {
+        const cardRegex = /^\d{16,19}$/;
+        const expirRegex = /^(0?[1-9]|1[0-2])\/\d{2}$/;     // MM/AA o M/AA
+        const cvvRegex = /^\d{3}$/;
+
+        if (!cardRegex.test(number)) {
+            return "Error. Número de tarjeta no válido, verifique que sean únicamente números y tenga una longitud entre 16 y 19 dígitos.";
+        }
+        if (!expirRegex.test(expir)) {
+            return "Error. Fecha de expiración no válida, debe tener formato MM/AA.";
+        }
+        // Validar si la tarjeta ha caducado
+        // Obtener la fecha ingresada
+        const [monthStr, yearStr] = expir.split('/');
+        const expirMonth = parseInt(monthStr, 10); // Pasar a entero
+
+        // Convertir el año de 2 dígitos (AA) a 4 dígitos (AAAA)
+        const expirYear = 2000 + parseInt(yearStr, 10); 
+        
+        // Obtener la fecha actual
+        const currentDate = new Date();
+        const currentYear = currentDate.getFullYear();
+        // getMonth() devuelve 0 (Enero) a 11 (Diciembre), por eso sumamos 1
+        const currentMonth = currentDate.getMonth() + 1; 
+
+        // El año de caducidad debe ser mayor que el año actual
+        if (expirYear < currentYear) {
+            return "Error. Fecha de expiración no válida, la tarjeta ha caducado.";
+        }
+
+        // Si el año es el actual, el mes de caducidad debe ser igual o posterior al mes actual.
+        if (expirYear === currentYear && expirMonth < currentMonth) {
+            return "Error. Fecha de expiración no válida, la tarjeta ha caducado.";
+        }
+        if (!cvvRegex.test(cvv)) {
+            return "Error. CVV no válido, verifique que sean únicamente 3 números.";
+        }
+
+        return true;
+    }
+
+    function clearErrors() {
+        $('.error-message').text('').hide(); 
+}
+
     // Procesar pago
     $('#payment-form').on('submit', function(e) {
+        clearErrors();      // Ocultar errores una vez se han arreglado
+
         e.preventDefault();
+
+        // Obtener datos de la tarjeta
+        const cardNumber = $('#card-number').val();
+        const expirDate = $('#expir-date').val();
+        const cvv = $('#cvv').val();
+
+        // Validar datos de la tarjeta
+        const validationResult = validateCard(cardNumber, expirDate, cvv);
+        if (validationResult !== true) {
+            let errorElementId;
+            let inputToFocus;
+            
+            if (validationResult.includes("Número de tarjeta")) {
+                errorElementId = '#card-number-error';
+                inputToFocus = '#card-number';
+            } else if (validationResult.includes("Fecha de expiración")) {
+                errorElementId = '#expir-date-error';
+                inputToFocus = '#expir-date';
+            } else if (validationResult.includes("CVV")) {
+                errorElementId = '#cvv-error';
+                inputToFocus = '#cvv';
+            }
+            
+            // Mostrar el error en el campo correspondiente
+            $(errorElementId).text(validationResult).show();
+            $(inputToFocus).focus();
+            return;
+        }
+
         if (confirm('¿Estás seguro de que deseas realizar el pago?')) {
 
             // Simulación de procesamiento de pago
