@@ -104,7 +104,7 @@ $(function() {
 
 
     // Formulario de Comentarios
-    const loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser'));
+    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
     const $commentFormBox = $('#comment-form-box');
     const $authWarning = $('#comment-auth-warning');
 

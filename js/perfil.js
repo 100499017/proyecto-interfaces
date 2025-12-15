@@ -5,7 +5,7 @@
 $(function() {
 
     // Comprueba si has iniciado sesión
-    const loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser'));
+    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
 
     if (!loggedInUser) {
         alert('Debes iniciar sesión para ver tu perfil.');
@@ -206,7 +206,7 @@ $(function() {
     // CERRAR SESIÓN
     $('#logout-btn').on('click', function() {
         if(confirm('¿Cerrar sesión?')) {
-            sessionStorage.removeItem('loggedInUser');
+            localStorage.removeItem('loggedInUser');
             window.location.href = '../index.html';
         }
     });
@@ -245,7 +245,7 @@ $(function() {
             localStorage.setItem('users', JSON.stringify(updatedUsers));
 
             // Cerrar sesión y redirigir
-            sessionStorage.removeItem('loggedInUser');
+            localStorage.removeItem('loggedInUser');
             alert('Tu cuenta ha sido eliminada.');
             window.location.href = '../index.html';
             }

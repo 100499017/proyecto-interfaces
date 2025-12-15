@@ -12,8 +12,8 @@ $(function() {
     let rutasData = [];
     let currentPricePerPerson = 0;
 
-    // Obtenemos el usuario de sessionStorage
-    const loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser'));
+    // Obtenemos el usuario de localStorage
+    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
     if (!loggedInUser) {
         $bookingForm.hide();
         $authWarning.html('Debes <a class="auth-trigger">iniciar sesión</a> para comprar billetes.').show();
@@ -110,7 +110,7 @@ $(function() {
         $priceDisplay.show();
     }
 
-    // Envío -> Ir a pagar (Guardar borrador en sessionStorage)
+    // Envío -> Ir a pagar (Guardar borrador en localStorage)
     $bookingForm.on('submit', function(e) {
         e.preventDefault();
 
@@ -133,8 +133,8 @@ $(function() {
             totalEuros: parseFloat($totalPriceSpan.text())
         };
 
-        // Guardar en sessionStorage para pasarlo a la página de pago
-        sessionStorage.setItem('draftBooking', JSON.stringify(draftBooking));
+        // Guardar en localStorage para pasarlo a la página de pago
+        localStorage.setItem('draftBooking', JSON.stringify(draftBooking));
 
         // Redirigir a la página de pago
         window.location.href = 'pago.html';

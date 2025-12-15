@@ -21,7 +21,7 @@ $(function() {
     const DEFAULT_AVATAR_PATH = `${pathPrefix}/images/default-avatar.jpg`;
 
     // --- COMPROBAR SESIÓN ---
-    const loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser'));
+    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
 
     if (loggedInUser) {
         $postBox.show();
@@ -36,7 +36,7 @@ $(function() {
         e.preventDefault();
         
         // Volvemos a leer el usuario por seguridad
-        const currentUser = JSON.parse(sessionStorage.getItem('loggedInUser'));
+        const currentUser = JSON.parse(localStorage.getItem('loggedInUser'));
         if (!currentUser) return;
 
         const text = $postContent.val().trim();

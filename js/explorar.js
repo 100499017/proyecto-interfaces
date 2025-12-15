@@ -36,7 +36,7 @@ $(function() {
 
     // FUNCIÓN PARA OBTENER LUGARES FAVORITOS DEL USUARIO ---
     function getUserFavorites() {
-        const loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser'));
+        const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
         if (!loggedInUser) return []; // Si no hay usuario, no hay favoritos
 
         const allFavs = JSON.parse(localStorage.getItem('favorites')) || [];
@@ -113,7 +113,7 @@ $(function() {
     $(document).on('click', '.fav-btn', function(e) {
         e.preventDefault();
         
-        const loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser'));
+        const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
         if (!loggedInUser) {
             const msg = lang === 'en' ? 'Please login to save favorites.' : 'Inicia sesión para guardar favoritos.';
             alert(msg);

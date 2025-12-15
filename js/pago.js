@@ -1,7 +1,7 @@
 $(function() {
     // Recuperar datos del borrador
-    const draft = JSON.parse(sessionStorage.getItem('draftBooking'));
-    const loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser'));
+    const draft = JSON.parse(localStorage.getItem('draftBooking'));
+    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
 
     if (!draft || !loggedInUser) {
         alert('No hay ninguna compra pendiente.');
@@ -170,7 +170,7 @@ $(function() {
                 localStorage.setItem('bookings', JSON.stringify(allBookings));
 
                 // Limpiar borrador
-                sessionStorage.removeItem('draftBooking');
+                localStorage.removeItem('draftBooking');
 
                 // Éxito
                 alert('¡Pago realizado con éxito! Tu viaje ha sido confirmado.');
@@ -185,7 +185,7 @@ $(function() {
         e.preventDefault();
         if (confirm('¿Estás seguro de que deseas cancelar el pago? Se perderán los datos ingresados.')) {
             // Limpiar borrador
-            sessionStorage.removeItem('draftBooking');
+            localStorage.removeItem('draftBooking');
             window.location.href = 'reservar.html';
         }
     });

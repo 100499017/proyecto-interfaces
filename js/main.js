@@ -47,7 +47,7 @@ $(function() {
     // Actualiza el header
     function updateHeader() {
         const $authContainer = $('.auth-container');
-        const loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser'));
+        const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
 
         if (loggedInUser) {
             // Determina qué imagen usar
@@ -102,8 +102,8 @@ $(function() {
         if (foundUser) {
             alert('¡Bienvenido, ' + foundUser.name + '!');
 
-            // Usamos sessionStorage para mantener la sesión iniciada
-            sessionStorage.setItem('loggedInUser', JSON.stringify(foundUser));
+            // Usamos localStorage para mantener la sesión iniciada
+            localStorage.setItem('loggedInUser', JSON.stringify(foundUser));
 
             // Recarga la página
             window.location.reload();

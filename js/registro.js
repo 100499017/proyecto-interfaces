@@ -3,7 +3,7 @@
 // Espera a que el documento esté listo
 $(function() {
     // Redirigir a los usuarios que tengan una sesión iniciada
-    if (sessionStorage.getItem('loggedInUser')) {
+    if (localStorage.getItem('loggedInUser')) {
         alert("Cierra sesión antes de crear una nueva cuenta.");
         window.location.href = '../index.html';
     }
@@ -170,7 +170,7 @@ $(function() {
                 localStorage.setItem('users', JSON.stringify(users));
 
                 // Actualizar el usuario actual
-                sessionStorage.setItem('loggedInUser', JSON.stringify(newUser))
+                localStorage.setItem('loggedInUser', JSON.stringify(newUser))
 
                 // Mostrar mensaje de éxito y redirigir
                 alert('¡Registro completado con éxito! Ahora puedes iniciar sesión.');

@@ -114,7 +114,7 @@ $(function() {
     loadHomeCommunity();
 
     // BANNER DE REGISTRO
-    if (sessionStorage.getItem('loggedInUser')) {
+    if (localStorage.getItem('loggedInUser')) {
         $('.btn-register').on('click', function(e) {
             e.preventDefault();
             alert("Cierra sesión antes de crear una nueva cuenta.")
